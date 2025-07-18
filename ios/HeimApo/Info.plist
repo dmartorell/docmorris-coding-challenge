@@ -27,7 +27,7 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>com.dmartorell.heimapo</string>
+          <string>com.docmorris.heimapo</string>
         </array>
       </dict>
     </array>

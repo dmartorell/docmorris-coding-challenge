@@ -1,4 +1,4 @@
-package com.dmartorell.heimapo
+package com.docmorris.heimapo
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

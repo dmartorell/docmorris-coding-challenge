@@ -1,4 +1,4 @@
-package com.dmartorell.heimapo
+package com.docmorris.heimapo
 
 import android.app.Application
 import android.content.res.Configuration
