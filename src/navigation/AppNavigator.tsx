@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Alert } from 'react-native';
 import { Button } from '../ui/components/Button';
 import { Text } from '../ui/components/Text';
+import { useTheme } from '../ui/theme/ThemeContext';
+import { getDefaultHeaderOptions } from './config';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export const HomeScreen = () => (
   <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: 24 }}>
@@ -37,11 +39,17 @@ export const HomeScreen = () => (
   </View>
 );
 
-export const RootStack = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Home" component={HomeScreen} />
-  </Stack.Navigator>
-);
+export const RootStack = () => {
+  const { currentTheme } = useTheme();
+  return (
+    <Stack.Navigator screenOptions={getDefaultHeaderOptions(currentTheme)}>
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+      />
+    </Stack.Navigator>
+  );
+};
 
 export const AppNavigator = () => (
   <NavigationContainer>
