@@ -1,16 +1,19 @@
 {
-  "name": "doc-morris-demo",
+  "name": "heim-apo",
   "version": "1.0.0",
-  "type": "module",
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
+    "prebuild": "expo prebuild",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web"
+    "lint": "eslint --quiet --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx",
+    "typescript": "tsc --noEmit"
   },
   "dependencies": {
     "expo": "~53.0.17",
+    "expo-splash-screen": "^0.30.10",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
     "react-native": "0.79.5"
