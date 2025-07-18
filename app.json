@@ -3,14 +3,14 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#00463D",
-        "foregroundImage": "./assets/adaptive-icon.png"
+        "foregroundImage": "./assets/heimApo/adaptive-icon.png"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.dmartorell.heimapo"
+      "package": "com.docmorris.heimapo"
     },
-    "icon": "./assets/icon.png",
+    "icon": "./assets/heimApo/icon.png",
     "ios": {
-      "bundleIdentifier": "com.dmartorell.heimapo",
+      "bundleIdentifier": "com.docmorris.heimapo",
       "supportsTablet": true
     },
     "name": "Heim Apo",
@@ -21,17 +21,14 @@
       "backgroundColor": "#ffffff",
       "expo-splash-screen": {
         "backgroundColor": "#ffffff",
-        "image": "./assets/splash-icon.png",
+        "image": "./assets/heimApo/splash-icon.png",
         "imageWidth": 250,
         "resizeMode": "contain"
       },
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/heimApo/splash-icon.png",
       "resizeMode": "contain"
     },
     "userInterfaceStyle": "light",
-    "version": "1.0.0",
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "version": "1.0.0"
   }
 }
