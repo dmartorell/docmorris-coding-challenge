@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { View } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+import './global.css';
 
 import { ThemeProvider } from './src/ui/theme/ThemeContext';
 import { AppNavigator } from './src/navigation/AppNavigator';
