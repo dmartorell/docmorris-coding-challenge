@@ -3,12 +3,14 @@ import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { Theme } from '../ui/theme/themes';
 import { TAB_ROUTES_NAMES } from './types';
 
+const TAB_HEIGHT = 80;
+
 export const getTabScreenOptions = (currentTheme: Theme): (
   ({ route }: { route: { name: string } }) => BottomTabNavigationOptions) =>
   ({ route }) => ({
     tabBarActiveTintColor: currentTheme.colors.secondary,
-    tabBarInactiveTintColor: currentTheme.colors.textSecondary,
-    tabBarStyle: { backgroundColor: currentTheme.colors.background },
+    tabBarInactiveTintColor: currentTheme.colors.textMuted,
+    tabBarStyle: { backgroundColor: currentTheme.colors.surface, height: TAB_HEIGHT },
     tabBarIcon: ({ color, size }: { color: string; size: number }) => {
       switch (route.name) {
       case TAB_ROUTES_NAMES.HOME:
@@ -35,4 +37,5 @@ export const getTabHeaderOptions = (currentTheme: Theme): BottomTabNavigationOpt
     fontSize: currentTheme.typography.sizes.title2.fontSize,
   },
   headerTitleAlign: 'left',
+  headerShadowVisible: false,
 });

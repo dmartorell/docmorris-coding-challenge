@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTheme } from '../../../../ui/theme/ThemeContext';
-import { ScreenTemplate } from '../../../../ui/components/ScreenTemplate';
 import { Logo } from '../../../../ui/components/Logo';
+import { ScreenTemplate } from '../../../../ui/components/ScreenTemplate';
 
-export const HomeScreen = () => {
+export const CartScreen = () => {
   const { currentTheme } = useTheme();
 
   return (
