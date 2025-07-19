@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { FC, useState, useMemo } from 'react';
 import { FlatList, View, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { CartItem, CartItemCard } from '../components/CartItemCard';
@@ -6,105 +6,22 @@ import { CartScreenNavigationProp, SCREENS } from '../../../../navigation/types'
 import { ScreenTemplate } from '../../../../ui/components/ScreenTemplate';
 import { Text } from '../../../../ui/components/Text';
 import { Button } from '../../../../ui/components/Button';
+import { OrderSummary } from '../components/OrderSummary';
 import { useTranslations } from '../../../../ui/useTranslations';
-import i18n from '../../../../locales';
+import { initialMockCartItems } from '../../mocks/initialMockCartItems';
 
-const startDate = new Date(2025, 6, 22); // July 22, 2025
-const endDate = new Date(2025, 6, 23); // July 23, 2025
-
-const locale = i18n.language || 'en-EN';
-
-const startDay = new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(startDate);
-const startDayNum = startDate.getDate();
-const endDay = new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(endDate);
-const endDayNum = endDate.getDate();
-
-// --- Mock Cart Items Data ---
-// In a real app, this would come from global state (e.g., Redux) or an API.
-// For this demo, we'll manage it locally with useState.
-const initialMockCartItems: CartItem[] = [
-  {
-    id: '1',
-    tagLine: 'Eucerin Sun Cream SPF 50+',
-    brand: 'Eucerin',
-    imageUrl: 'https://picsum.photos/200',
-    price: 14.99,
-    quantity: 1,
-    volume: '50ml',
-  },
-  {
-    id: '2',
-    tagLine: 'La Roche-Posay Baby Sunscreen',
-    brand: 'La Roche-Posay',
-    imageUrl: 'https://picsum.photos/200',
-    price: 17.49,
-    quantity: 1,
-    volume: '100ml',
-  },
-  {
-    id: '3',
-    tagLine: 'Weleda Calendula Baby Oil',
-    brand: 'Weleda',
-    imageUrl: 'https://picsum.photos/200',
-    price: 9.99,
-    quantity: 1,
-    volume: '200ml',
-  },
-  {
-    id: '4',
-    tagLine: 'Vichy Liftactiv Serum',
-    brand: 'Vichy',
-    imageUrl: 'https://picsum.photos/200',
-    price: 29.99,
-    quantity: 1,
-    volume: '30ml',
-  },
-  {
-    id: '5',
-    tagLine: 'Bepanthol Baby Cream',
-    brand: 'Bepanthol',
-    imageUrl: 'https://picsum.photos/200',
-    price: 8.49,
-    quantity: 1,
-    volume: '100g',
-  },
-  {
-    id: '6',
-    tagLine: 'Herbalife Chamomile Tea',
-    brand: 'Herbalife',
-    imageUrl: 'https://picsum.photos/200',
-    price: 5.99,
-    quantity: 1,
-    volume: '20 bags',
-  },
-  {
-    id: '7',
-    tagLine: 'Avène Thermal Spring Water',
-    brand: 'Avène',
-    imageUrl: 'https://picsum.photos/200',
-    price: 7.99,
-    quantity: 1,
-    volume: '150ml',
-  },
-  {
-    id: '8',
-    tagLine: 'Dr. Hauschka Rose Day Cream',
-    brand: 'Dr. Hauschka',
-    imageUrl: 'https://picsum.photos/200',
-    price: 21.99,
-    quantity: 1,
-    volume: '30ml',
-  },
-];
-
-const CartScreen: React.FC = () => {
+export const CartScreen: FC = () => {
   const navigation = useNavigation<CartScreenNavigationProp>();
   const rootNavigation = useNavigation<any>();
-  const [cartItems, setCartItems] = useState<CartItem[]>(initialMockCartItems);
   const { t } = useTranslations();
+  const [cartItems, setCartItems] = useState<CartItem[]>(initialMockCartItems);
 
   const totalPrice = useMemo(() => {
     return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  }, [cartItems]);
+
+  const totalItems = useMemo(() => {
+    return cartItems.reduce((sum, item) => sum + item.quantity, 0);
   }, [cartItems]);
 
   const handleRemoveItem = (itemId: string) => {
@@ -148,11 +65,46 @@ const CartScreen: React.FC = () => {
       arrivalDate={arrivalString}
       onRemove={handleRemoveItem}
       onQuantityChange={handleQuantityChange}
+      style={{ marginHorizontal: 16 }}
+    />
+  );
+
+  const renderEmptyCart = () => (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text variant="body1" colorVariant="textMuted">{t('cart_empty_message')}</Text>
+      <Button
+        onPress={() => rootNavigation.navigate(SCREENS.HOME_TAB, { screen: SCREENS.HOME_SCREEN })}
+      >
+        {t('cart_start_shopping')}
+      </Button>
+    </View>
+  );
+
+  const renderOrderSummary = () => (
+    <OrderSummary
+      shipping={3.99}
+      amount={totalPrice + 3.99}
+      healthPoints={502}
+      extraPoints={100}
+      loyaltyLevel={2}
+      summaryTitle={t('cart_order_summary')}
+      subtotal={totalPrice}
+      onContinue={handleContinueToCheckout}
+      productAmountText={t('cart_order_summary_product_count', { count: totalItems })}
+      subtotalText={t('cart_order_summary_subtotal')}
+      buttonText={t('cart_order_summary_continue_to_checkout')}
+      discountText={t('cart_order_summary_discount')}
+      shippingCostText={t('cart_order_summary_shipping_cost')}
+      shippingAmountText={t('cart_order_summary_shipping_count', { count: 4 })}
+      amountText={t('cart_order_summary_total')}
+      healthPointsText={t('cart_order_summary_health_points', { healthPoints: 702 })}
+      extraPointsText={t('cart_order_summary_extra_points', { extraPoints: 100 })}
+      loayaltyLevelText={t('cart_order_summary_loyalty_level', { level: 6 })}
     />
   );
 
   return (
-    <ScreenTemplate className="px-4">
+    <ScreenTemplate>
       {!!cartItems.length && (
         <FlatList
           data={cartItems}
@@ -161,20 +113,11 @@ const CartScreen: React.FC = () => {
           style={{ flex: 1 }}
           contentContainerStyle={{ flexGrow: 1 }}
           showsVerticalScrollIndicator={false}
+          ListFooterComponent={renderOrderSummary}
         />
       )}
-      {cartItems.length === 0 && (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text variant="body1" colorVariant="textMuted">Your cart is empty.</Text>
-          <Button
-            onPress={() => rootNavigation.navigate(SCREENS.HOME_TAB, { screen: SCREENS.HOME_SCREEN })}
-          >
-            Start Shopping
-          </Button>
-        </View>
-      )}
+      {cartItems.length === 0 &&
+        renderEmptyCart()}
     </ScreenTemplate>
   );
 };
-
-export default CartScreen;

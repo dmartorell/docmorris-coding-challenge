@@ -10,6 +10,7 @@ export const TAB_ROUTES_NAMES = {
 } as const;
 
 export const SCREENS = {
+  MAIN_TABS: 'MainTabs',
   HOME_TAB: 'HomeTab',
   CATEGORIES_TAB: 'CategoriesTab',
   EXPLORE_TAB: 'ExploreTab',
