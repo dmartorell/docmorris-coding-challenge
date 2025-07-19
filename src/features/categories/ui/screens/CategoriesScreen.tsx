@@ -3,9 +3,8 @@ import { useTheme } from '../../../../ui/theme/ThemeContext';
 import { ScreenTemplate } from '../../../../ui/components/ScreenTemplate';
 import { Logo } from '../../../../ui/components/Logo';
 
-export const HomeScreen = () => {
+export const CategoriesScreen = () => {
   const { currentTheme } = useTheme();
-
   return (
     <ScreenTemplate>
       <Logo source={currentTheme.logoMuted} className="w-40" />

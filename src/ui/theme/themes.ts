@@ -71,6 +71,7 @@ export type Theme = {
   };
   logo: ImageSourcePropType;
   logoIcon: ImageSourcePropType;
+  logoMuted: ImageSourcePropType;
 };
 
 // --- HeimApo Theme (DocMorris Brand) ---
@@ -140,6 +141,7 @@ export const heimApoTheme: Theme = {
   },
   logoIcon: require('../../../assets/heimApo/logoIcon.png'),
   logo: require('../../../assets/heimApo/logo.png'),
+  logoMuted: require('../../../assets/heimApo/logoMuted.png'),
 };
 
 // --- SmartPill Theme (Brand B) ---
@@ -209,4 +211,6 @@ export const smartPillTheme: Theme = {
   },
   logoIcon: require('../../../assets/smartPill/logoIcon.png'),
   logo: require('../../../assets/smartPill/logo.png'),
+  logoMuted: require('../../../assets/smartPill/logoMuted.png'),
+
 };
