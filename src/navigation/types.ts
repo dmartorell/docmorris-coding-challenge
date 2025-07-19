@@ -1,106 +1,142 @@
-import { NavigatorScreenParams } from '@react-navigation/native';
+import { NavigatorScreenParams, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
+export const TAB_ICON_NAMES = {
+  HOME: 'home',
+  CATEGORIES: 'categories',
+  EXPLORE: 'explore',
+  CART: 'cart',
+  USER: 'user',
+} as const;
+
 export const SCREENS = {
-  // --- Tab Names ---
   HOME_TAB: 'HomeTab',
   CATEGORIES_TAB: 'CategoriesTab',
   EXPLORE_TAB: 'ExploreTab',
   CART_TAB: 'CartTab',
   USER_TAB: 'UserTab',
-  // --- Screen Names  ---
-  HOME: 'HomeScreen',
-  PRODUCT_LIST: 'ProductListScreen',
-  PRODUCT_DETAIL: 'ProductDetailScreen',
-  CATEGORIES: 'CategoriesScreen',
-  MEDICATIONS_PRODUCT_LIST: 'MedicationsProductListScreen',
-  EXPLORE: 'ExploreScreen',
-  CART: 'CartScreen',
-  CHECKOUT: 'CheckoutScreen',
-  ORDER_CONFIRMATION: 'OrderConfirmationScreen',
-  USER: 'UserScreen',
-  USER_SETTINGS: 'UserSettingsScreen',
+  HOME_SCREEN: 'HomeScreen',
+  PRODUCT_LIST_SCREEN: 'ProductListScreen',
+  PRODUCT_DETAIL_SCREEN: 'ProductDetailScreen',
+  CATEGORIES_SCREEN: 'CategoriesScreen',
+  MEDICATIONS_PRODUCT_LIST_SCREEN: 'MedicationsProductListScreen',
+  EXPLORE_SCREEN: 'ExploreScreen',
+  CART_SCREEN: 'CartScreen',
+  CHECKOUT_SCREEN: 'CheckoutScreen',
+  ORDER_CONFIRMATION_SCREEN: 'OrderConfirmationScreen',
+  USER_SCREEN: 'UserScreen',
+  USER_SETTINGS_SCREEN: 'UserSettingsScreen',
 } as const;
 
-export type CategoriesStackParamList = {
-  [SCREENS.CATEGORIES]: undefined;
-  [SCREENS.MEDICATIONS_PRODUCT_LIST]: { categoryId: string };
-  [SCREENS.PRODUCT_DETAIL]: { productId: string };
-};
+// 3. Define Stack Parameter Lists
+//    - Each type corresponds to a createNativeStackNavigator
+//    - The keys are the screen names (from SCREENS object)
+//    - The values are the parameters that screen can receive
 
 export type HomeStackParamList = {
-  [SCREENS.HOME]: undefined;
+  [SCREENS.HOME_SCREEN]: undefined;
+  [SCREENS.PRODUCT_LIST_SCREEN]: undefined;
+  [SCREENS.PRODUCT_DETAIL_SCREEN]: { productId: string };
+};
+
+export type CategoriesStackParamList = {
+  [SCREENS.CATEGORIES_SCREEN]: undefined;
+  [SCREENS.MEDICATIONS_PRODUCT_LIST_SCREEN]: { categoryId: string };
+  [SCREENS.PRODUCT_DETAIL_SCREEN]: { productId: string };
 };
 
 export type ExploreStackParamList = {
-  [SCREENS.EXPLORE]: undefined;
+  [SCREENS.EXPLORE_SCREEN]: undefined;
+  [SCREENS.PRODUCT_LIST_SCREEN]: undefined;
+  [SCREENS.PRODUCT_DETAIL_SCREEN]: { productId: string };
 };
 
 export type CartStackParamList = {
-  [SCREENS.CART]: undefined;
-};
-
-export type CheckoutStackParamList = {
-  [SCREENS.CHECKOUT]: undefined;
-};
-
-export type OrderConfirmationStackParamList = {
-  [SCREENS.ORDER_CONFIRMATION]: undefined;
+  [SCREENS.CART_SCREEN]: undefined;
+  [SCREENS.CHECKOUT_SCREEN]: undefined;
+  [SCREENS.ORDER_CONFIRMATION_SCREEN]: undefined;
 };
 
 export type UserStackParamList = {
-  [SCREENS.USER]: undefined;
+  [SCREENS.USER_SCREEN]: undefined;
+  [SCREENS.USER_SETTINGS_SCREEN]: undefined;
 };
 
+// 4. Define the Bottom Tab Navigator Parameter List
+//    - Maps tab names (from SCREENS object) to their internal stack parameter lists
 export type BottomTabParamList = {
-  HomeTab: NavigatorScreenParams<HomeStackParamList>;
-  CategoriesTab: NavigatorScreenParams<CategoriesStackParamList>;
-  ExploreTab: NavigatorScreenParams<ExploreStackParamList>;
-  CartTab: NavigatorScreenParams<CartStackParamList>;
-  UserTab: NavigatorScreenParams<UserStackParamList>;
+  [SCREENS.HOME_TAB]: NavigatorScreenParams<HomeStackParamList>;
+  [SCREENS.CATEGORIES_TAB]: NavigatorScreenParams<CategoriesStackParamList>;
+  [SCREENS.EXPLORE_TAB]: NavigatorScreenParams<ExploreStackParamList>;
+  [SCREENS.CART_TAB]: NavigatorScreenParams<CartStackParamList>;
+  [SCREENS.USER_TAB]: NavigatorScreenParams<UserStackParamList>;
 };
-export type CategoriesScreenNavigationProp =
-  NativeStackNavigationProp<
-    CategoriesStackParamList,
-    typeof SCREENS.CATEGORIES
-  >;
-export type MedicationsProductListScreenNavigationProp =
-  NativeStackNavigationProp<
-    CategoriesStackParamList,
-    typeof SCREENS.MEDICATIONS_PRODUCT_LIST
-  >;
-export type ProductDetailScreenNavigationProp =
-  NativeStackNavigationProp<
-    CategoriesStackParamList,
-    typeof SCREENS.PRODUCT_DETAIL
-  >;
 
+// 5. Define Individual Screen Navigation Props (for useNavigation hook)
+//    - This ensures type safety when using navigation.navigate() or navigation.push()
+
+// Home Stack Navigation Props
 export type HomeScreenNavigationProp = NativeStackNavigationProp<
   HomeStackParamList,
-  typeof SCREENS.HOME
+  typeof SCREENS.HOME_SCREEN
+>;
+export type HomeProductListScreenNavigationProp = NativeStackNavigationProp<
+  HomeStackParamList,
+  typeof SCREENS.PRODUCT_LIST_SCREEN
 >;
 
+// Categories Stack Navigation Props
+export type CategoriesScreenNavigationProp = NativeStackNavigationProp<
+  CategoriesStackParamList,
+  typeof SCREENS.CATEGORIES_SCREEN
+>;
+export type MedicationsProductListScreenNavigationProp = NativeStackNavigationProp<
+  CategoriesStackParamList,
+  typeof SCREENS.MEDICATIONS_PRODUCT_LIST_SCREEN
+>;
+
+// Explore Stack Navigation Props
 export type ExploreScreenNavigationProp = NativeStackNavigationProp<
   ExploreStackParamList,
-  typeof SCREENS.EXPLORE
+  typeof SCREENS.EXPLORE_SCREEN
+>;
+export type ExploreProductListScreenNavigationProp = NativeStackNavigationProp<
+  ExploreStackParamList,
+  typeof SCREENS.PRODUCT_LIST_SCREEN
 >;
 
+// Cart Stack Navigation Props (all part of the same flow)
 export type CartScreenNavigationProp = NativeStackNavigationProp<
   CartStackParamList,
-  typeof SCREENS.CART
+  typeof SCREENS.CART_SCREEN
 >;
-
 export type CheckoutScreenNavigationProp = NativeStackNavigationProp<
-  CheckoutStackParamList,
-  typeof SCREENS.CHECKOUT
+  CartStackParamList,
+  typeof SCREENS.CHECKOUT_SCREEN
 >;
-
 export type OrderConfirmationScreenNavigationProp = NativeStackNavigationProp<
-  OrderConfirmationStackParamList,
-  typeof SCREENS.ORDER_CONFIRMATION
+  CartStackParamList,
+  typeof SCREENS.ORDER_CONFIRMATION_SCREEN
 >;
 
+// User Stack Navigation Props
 export type UserScreenNavigationProp = NativeStackNavigationProp<
   UserStackParamList,
-  typeof SCREENS.USER
+  typeof SCREENS.USER_SCREEN
+>;
+export type UserSettingsScreenNavigationProp = NativeStackNavigationProp<
+  UserStackParamList,
+  typeof SCREENS.USER_SETTINGS_SCREEN
+>;
+
+// 6. Optional: Generic Screen Navigation & Route Props (for screens used in multiple stacks)
+//    These help when a single component (like ProductDetailScreen) can be reached from various places.
+
+export type ProductDetailScreenNavigationProp = NativeStackNavigationProp<
+  HomeStackParamList & CategoriesStackParamList & ExploreStackParamList,
+  typeof SCREENS.PRODUCT_DETAIL_SCREEN
+>;
+export type ProductDetailScreenRouteProp = RouteProp<
+  HomeStackParamList | CategoriesStackParamList | ExploreStackParamList,
+  typeof SCREENS.PRODUCT_DETAIL_SCREEN
 >;
