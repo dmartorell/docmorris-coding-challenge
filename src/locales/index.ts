@@ -19,7 +19,6 @@ i18n
     resources,
     lng: Localization.getLocales()[0].languageCode ?? 'en',
     fallbackLng: 'en',
-
     compatibilityJSON: 'v4',
     interpolation: {
       escapeValue: false,

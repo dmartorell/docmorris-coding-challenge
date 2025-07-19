@@ -89,7 +89,7 @@ export const heimApoTheme: Theme = {
     success: '#108455',
     warning: '#ffc107',
     error: '#dc3545',
-    border: '#DODODO',
+    border: '#EDEDED',
     placeholder: '#727272',
   },
   typography: {
@@ -159,7 +159,7 @@ export const smartPillTheme: Theme = {
     success: '#4CAF50',
     warning: '#FF9800',
     error: '#EF5350',
-    border: '#EAEAEA',
+    border: '#EDEDED',
     placeholder: '#BDBDBD',
   },
   typography: {

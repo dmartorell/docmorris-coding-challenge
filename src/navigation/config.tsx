@@ -30,12 +30,19 @@ export const getTabScreenOptions = (currentTheme: Theme): (
   });
 
 export const getTabHeaderOptions = (currentTheme: Theme): BottomTabNavigationOptions => ({
-  headerStyle: { backgroundColor: currentTheme.colors.surface },
+  headerStyle: {
+    backgroundColor: currentTheme.colors.surface,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 9,
+    elevation: 2,
+  },
   headerTitleStyle: {
     color: currentTheme.colors.textSecondary,
     fontFamily: currentTheme.typography.weights.semiBold,
     fontSize: currentTheme.typography.sizes.title2.fontSize,
   },
   headerTitleAlign: 'left',
-  headerShadowVisible: false,
+  headerShadowVisible: true,
 });

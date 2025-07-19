@@ -7,7 +7,7 @@ export const HomeScreen = () => {
   const { currentTheme } = useTheme();
 
   return (
-    <ScreenTemplate>
+    <ScreenTemplate className="items-center">
       <Logo source={currentTheme.logoMuted} className="w-40" />
     </ScreenTemplate>
   );
