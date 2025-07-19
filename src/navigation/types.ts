@@ -1,7 +1,7 @@
 import { NavigatorScreenParams, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-export const TAB_ICON_NAMES = {
+export const TAB_ROUTES_NAMES = {
   HOME: 'home',
   CATEGORIES: 'categories',
   EXPLORE: 'explore',
