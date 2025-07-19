@@ -6,7 +6,7 @@ export const SCREENS = {
   HOME_TAB: 'HomeTab',
   CATEGORIES_TAB: 'CategoriesTab',
   EXPLORE_TAB: 'ExploreTab',
-  CHART_TAB: 'ChartTab',
+  CART_TAB: 'CartTab',
   USER_TAB: 'UserTab',
   // --- Screen Names  ---
   HOME: 'HomeScreen',
@@ -15,7 +15,7 @@ export const SCREENS = {
   CATEGORIES: 'CategoriesScreen',
   MEDICATIONS_PRODUCT_LIST: 'MedicationsProductListScreen',
   EXPLORE: 'ExploreScreen',
-  CHART: 'ChartScreen',
+  CART: 'CartScreen',
   CHECKOUT: 'CheckoutScreen',
   ORDER_CONFIRMATION: 'OrderConfirmationScreen',
   USER: 'UserScreen',
@@ -36,8 +36,8 @@ export type ExploreStackParamList = {
   [SCREENS.EXPLORE]: undefined;
 };
 
-export type ChartStackParamList = {
-  [SCREENS.CHART]: undefined;
+export type CartStackParamList = {
+  [SCREENS.CART]: undefined;
 };
 
 export type CheckoutStackParamList = {
@@ -56,7 +56,7 @@ export type BottomTabParamList = {
   HomeTab: NavigatorScreenParams<HomeStackParamList>;
   CategoriesTab: NavigatorScreenParams<CategoriesStackParamList>;
   ExploreTab: NavigatorScreenParams<ExploreStackParamList>;
-  ChartTab: NavigatorScreenParams<ChartStackParamList>;
+  CartTab: NavigatorScreenParams<CartStackParamList>;
   UserTab: NavigatorScreenParams<UserStackParamList>;
 };
 export type CategoriesScreenNavigationProp =
@@ -85,9 +85,9 @@ export type ExploreScreenNavigationProp = NativeStackNavigationProp<
   typeof SCREENS.EXPLORE
 >;
 
-export type ChartScreenNavigationProp = NativeStackNavigationProp<
-  ChartStackParamList,
-  typeof SCREENS.CHART
+export type CartScreenNavigationProp = NativeStackNavigationProp<
+  CartStackParamList,
+  typeof SCREENS.CART
 >;
 
 export type CheckoutScreenNavigationProp = NativeStackNavigationProp<
