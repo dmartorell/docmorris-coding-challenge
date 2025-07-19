@@ -1,10 +1,8 @@
 import React from 'react';
 import { View, ViewStyle, ActivityIndicator } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { cssInterop } from 'nativewind';
 import { useTheme } from '../theme/ThemeContext';
 
-const StyledSafeAreaView = cssInterop(SafeAreaView, { className: 'style' });
 const StyledView = cssInterop(View, { className: 'style' });
 
 interface ScreenTemplateProps {
@@ -24,7 +22,7 @@ export const ScreenTemplate: React.FC<ScreenTemplateProps> = ({
   style,
   isLoading = false,
   justifyContent = 'center',
-  alignItems = 'center',
+  alignItems = 'stretch',
   gap = 'lg',
   backgroundColor,
 }) => {
@@ -34,22 +32,17 @@ export const ScreenTemplate: React.FC<ScreenTemplateProps> = ({
   const gapClass = `gap-${String(gap)}`;
   const bgColor = backgroundColor || currentTheme.colors.background;
   return (
-    <StyledSafeAreaView
-      className="flex-1"
-      style={{ backgroundColor: bgColor }}
+    <StyledView
+      className={`flex-1 ${justifyClass} ${alignClass} ${gapClass} ${className}`}
+      style={{ ...(style || {}), backgroundColor: bgColor }}
     >
-      <StyledView
-        className={`flex-1 ${justifyClass} ${alignClass} ${gapClass} ${className}`}
-        style={{ ...(style || {}), backgroundColor: bgColor }}
-      >
-        {isLoading
-          ? (
-            <ActivityIndicator size="large" color={currentTheme.colors.primary} />
-          )
-          : (
-            children
-          )}
-      </StyledView>
-    </StyledSafeAreaView>
+      {isLoading
+        ? (
+          <ActivityIndicator size="large" color={currentTheme.colors.primary} />
+        )
+        : (
+          children
+        )}
+    </StyledView>
   );
 };

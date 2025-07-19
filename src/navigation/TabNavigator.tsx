@@ -3,10 +3,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTheme } from '../ui/theme/ThemeContext';
 import { HomeScreen } from '../features/home/ui/screens/HomeScreen';
 import { useTranslations } from '../ui/useTranslations';
-import { CartScreen } from '../features/cart/ui/screens/CartScreen';
 import { UserScreen } from '../features/user/ui/screens/UserScreen';
 import { ExploreScreen } from '../features/explore/ui/screens/ExploreScreen';
 import { CategoriesScreen } from '../features/categories/ui/screens/CategoriesScreen';
+import CartScreen from '../features/cart/ui/screens/CartScreen';
 import { getTabScreenOptions, getTabHeaderOptions } from './config';
 import { TAB_ROUTES_NAMES } from './types';
 
@@ -25,7 +25,7 @@ export const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={getTabScreenOptions(currentTheme)}
-      initialRouteName={TAB_ROUTES_NAMES.HOME}
+      initialRouteName={TAB_ROUTES_NAMES.CART}
     >
       <Tab.Screen
         name={TAB_ROUTES_NAMES.HOME}
