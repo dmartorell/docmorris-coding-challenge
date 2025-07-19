@@ -5,7 +5,7 @@ import { useTheme } from '../ui/theme/ThemeContext';
 import { HomeScreen } from '../features/home/ui/screens/HomeScreen';
 import { useTranslations } from '../ui/useTranslations';
 import { getTabScreenOptions, getTabHeaderOptions } from './config';
-import { TAB_ICON_NAMES } from './types';
+import { TAB_ROUTES_NAMES } from './types';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +22,7 @@ export const TabNavigator = () => {
       screenOptions={getTabScreenOptions(currentTheme)}
     >
       <Tab.Screen
-        name={TAB_ICON_NAMES.HOME}
+        name={TAB_ROUTES_NAMES.HOME}
         component={HomeScreen}
         options={{
           tabBarLabel: t('home'),
@@ -30,7 +30,7 @@ export const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name={TAB_ICON_NAMES.CATEGORIES}
+        name={TAB_ROUTES_NAMES.CATEGORIES}
         component={CategoriesScreen}
         options={{
           tabBarLabel: t('categories'),
@@ -38,7 +38,7 @@ export const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name={TAB_ICON_NAMES.EXPLORE}
+        name={TAB_ROUTES_NAMES.EXPLORE}
         component={ExploreScreen}
         options={{
           tabBarLabel: t('explore'),
@@ -46,7 +46,7 @@ export const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name={TAB_ICON_NAMES.CART}
+        name={TAB_ROUTES_NAMES.CART}
         component={CartScreen}
         options={{
           tabBarLabel: t('cart'),
@@ -54,7 +54,7 @@ export const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name={TAB_ICON_NAMES.USER}
+        name={TAB_ROUTES_NAMES.USER}
         component={UserScreen}
         options={{
           tabBarLabel: t('user'),
