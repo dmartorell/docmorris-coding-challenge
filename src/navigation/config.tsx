@@ -1,5 +1,6 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { Theme } from '../ui/theme/themes';
 import { TAB_ROUTES_NAMES } from './types';
 
@@ -37,6 +38,19 @@ export const getTabHeaderOptions = (currentTheme: Theme): BottomTabNavigationOpt
     shadowOpacity: 0.1,
     shadowRadius: 9,
     elevation: 2,
+  },
+  headerTitleStyle: {
+    color: currentTheme.colors.textSecondary,
+    fontFamily: currentTheme.typography.weights.semiBold,
+    fontSize: currentTheme.typography.sizes.title2.fontSize,
+  },
+  headerTitleAlign: 'left',
+  headerShadowVisible: true,
+});
+
+export const getScreenHeaderOptions = (currentTheme: Theme): NativeStackNavigationOptions => ({
+  headerStyle: {
+    backgroundColor: currentTheme.colors.surface,
   },
   headerTitleStyle: {
     color: currentTheme.colors.textSecondary,

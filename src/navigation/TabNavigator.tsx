@@ -6,7 +6,7 @@ import { useTranslations } from '../ui/useTranslations';
 import { UserScreen } from '../features/user/ui/screens/UserScreen';
 import { ExploreScreen } from '../features/explore/ui/screens/ExploreScreen';
 import { CategoriesScreen } from '../features/categories/ui/screens/CategoriesScreen';
-import CartScreen from '../features/cart/ui/screens/CartScreen';
+import { CartScreen } from '../features/cart/ui/screens/CartScreen';
 import { getTabScreenOptions, getTabHeaderOptions } from './config';
 import { TAB_ROUTES_NAMES } from './types';
 

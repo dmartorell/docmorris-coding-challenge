@@ -16,6 +16,7 @@ interface ButtonProps {
   textClassName?: string;
   style?: ViewStyle;
   textStyle?: TextStyle;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -28,11 +29,24 @@ export const Button: React.FC<ButtonProps> = ({
   textClassName = '',
   style,
   textStyle = {},
+  size = 'md',
 }) => {
   const { currentTheme } = useTheme();
+
+  let height = 40;
+  let paddingVertical = currentTheme.spacing.sm;
+
+  if (size === 'sm') {
+    height = 32;
+    paddingVertical = currentTheme.spacing.xs;
+  } else if (size === 'lg') {
+    height = 52;
+    paddingVertical = currentTheme.spacing.md;
+  }
+
   const baseButtonClasses = `
     flex-row items-center justify-center
-    px-${currentTheme.spacing.md} py-${currentTheme.spacing.sm}
+    px-${currentTheme.spacing.md}
     rounded-md
   `;
   let buttonStyles: ViewStyle = {};
@@ -44,7 +58,8 @@ export const Button: React.FC<ButtonProps> = ({
     buttonStyles = {
       backgroundColor: currentTheme.colors.secondary,
       borderRadius: currentTheme.borderRadius.md,
-      paddingVertical: currentTheme.spacing.md,
+      height,
+      paddingVertical,
       alignItems: 'center',
       justifyContent: 'center',
     };
@@ -55,7 +70,8 @@ export const Button: React.FC<ButtonProps> = ({
       backgroundColor: currentTheme.colors.surface,
       borderColor: currentTheme.colors.primary,
       borderRadius: currentTheme.borderRadius.md,
-      paddingVertical: currentTheme.spacing.md,
+      height,
+      paddingVertical,
       alignItems: 'center',
       justifyContent: 'center',
       borderWidth: 1,

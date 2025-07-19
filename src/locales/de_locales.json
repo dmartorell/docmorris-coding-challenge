@@ -1,8 +1,22 @@
 {
   "cart": "Warenkorb",
-  "categories": "Kategorien",
-  "explore": "Entdecken",
-  "home": "Startseite",
+  "cart_order_summary": "Bestellübersicht",
+  "cart_order_summary_continue_to_checkout": "Weiter zur Kasse",
+  "cart_order_summary_discount": "Haben Sie einen Gutschein?",
+  "cart_order_summary_extra_points": "Sie haben {{extraPoints}} zusätzliche Punkte für Ihren Warenkorb über 100€ verdient!",
+  "cart_order_summary_health_points": "Erhalten Sie {{healthPoints}} Punkte mit diesem Einkauf",
+  "cart_order_summary_loyalty_level": "Mit diesem Einkauf erreichen Sie Stufe {{level}} des Treueprogramms!",
+  "cart_order_summary_product_count": "{{count}} Produkte",
+  "cart_order_summary_shipping_cost": "Versandkosten",
+  "cart_order_summary_shipping_count": "{{count}} Lieferungen",
+  "cart_order_summary_subtotal": "Zwischensumme",
+  "cart_order_summary_total": "Gesamtbetrag",
   "remove": "Entfernen",
-  "user": "Benutzer"
+  "screen_header_checkout": "Versand und Zahlung",
+  "shippings": "Lieferungen",
+  "tab_name_categories": "Kategorien",
+  "tab_name_explore": "Entdecken",
+  "tab_name_home": "Startseite",
+  "tab_name_products": "Produkte",
+  "tab_name_user": "Benutzer"
 }

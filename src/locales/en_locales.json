@@ -1,8 +1,22 @@
 {
   "cart": "Cart",
-  "categories": "Categories",
-  "explore": "Explore",
-  "home": "Home",
+  "cart_order_summary": "Order Summary",
+  "cart_order_summary_continue_to_checkout": "Continue",
+  "cart_order_summary_discount": "Do you have any discount?",
+  "cart_order_summary_extra_points": "You have earned {{extraPoints}} extra points for your cart over 100€!",
+  "cart_order_summary_health_points": "Get {{healthPoints}} points with this purchase",
+  "cart_order_summary_loyalty_level": "With this purchase, you reach level {{level}} of the loyalty program!",
+  "cart_order_summary_product_count": "{{count}} products",
+  "cart_order_summary_shipping_cost": "Shipping cost",
+  "cart_order_summary_shipping_count": "{{count}} shipping",
+  "cart_order_summary_subtotal": "Subtotal",
+  "cart_order_summary_total": "Total amount",
   "remove": "Remove",
-  "user": "User"
+  "screen_header_checkout": "Shipping and Payment",
+  "shippings": "shippings",
+  "tab_name_categories": "Categories",
+  "tab_name_explore": "Explore",
+  "tab_name_home": "Home",
+  "tab_name_products": "products",
+  "tab_name_user": "User"
 }
