@@ -10,15 +10,15 @@ export const getTabScreenOptions = (currentTheme: Theme): (
     tabBarStyle: { backgroundColor: currentTheme.colors.background },
     tabBarIcon: ({ color, size }: { color: string; size: number }) => {
       switch (route.name) {
-      case 'Home':
+      case 'home':
         return <MaterialIcons name="home" size={size} color={color} />;
-      case 'Categories':
+      case 'categories':
         return <MaterialIcons name="explore" size={size} color={color} />;
-      case 'Explore':
+      case 'explore':
         return <MaterialIcons name="favorite" size={size} color={color} />;
-      case 'Cart':
+      case 'cart':
         return <MaterialIcons name="shopping-cart" size={size} color={color} />;
-      case 'User':
+      case 'user':
         return <MaterialIcons name="person" size={size} color={color} />;
       default:
         return null;
