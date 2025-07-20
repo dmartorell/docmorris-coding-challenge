@@ -1,12 +1,13 @@
 import { NavigatorScreenParams, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { CartItem } from '../features/cart/ui/components/CartItemCard';
 
 export const TAB_ROUTES_NAMES = {
-  HOME: 'home',
-  CATEGORIES: 'categories',
-  EXPLORE: 'explore',
-  CART: 'cart',
-  USER: 'user',
+  HOME: 'tab_home',
+  CATEGORIES: 'tab_categories',
+  EXPLORE: 'tab_explore',
+  CART: 'tab_cart',
+  USER: 'tab_user',
 } as const;
 
 export const SCREENS = {
@@ -54,7 +55,7 @@ export type ExploreStackParamList = {
 
 export type CartStackParamList = {
   [SCREENS.CART_SCREEN]: undefined;
-  [SCREENS.CHECKOUT_SCREEN]: undefined;
+  [SCREENS.CHECKOUT_SCREEN]: { cartItems: CartItem[] };
   [SCREENS.ORDER_CONFIRMATION_SCREEN]: undefined;
 };
 
