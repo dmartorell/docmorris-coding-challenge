@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTheme } from '../ui/theme/ThemeContext';
 import { HomeScreen } from '../features/home/ui/screens/HomeScreen';
-import { useTranslations } from '../ui/useTranslations';
+import { useTranslations } from '../locales/useTranslations';
 import { UserScreen } from '../features/user/ui/screens/UserScreen';
 import { ExploreScreen } from '../features/explore/ui/screens/ExploreScreen';
 import { CategoriesScreen } from '../features/categories/ui/screens/CategoriesScreen';

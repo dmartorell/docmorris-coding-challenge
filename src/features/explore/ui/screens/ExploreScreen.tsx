@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '../../../../ui/theme/ThemeContext';
-import { ScreenTemplate } from '../../../../ui/components/ScreenTemplate';
+import { ScreenTemplate } from '../../../../ui/templates/ScreenTemplate';
 import { Logo } from '../../../../ui/components/Logo';
 
 export const ExploreScreen = () => {

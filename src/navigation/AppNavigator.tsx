@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { MaterialIcons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
 import { CheckoutScreen } from '../features/checkout/ui/screens/CheckoutScreen';
-import { useTranslations } from '../ui/useTranslations';
+import { useTranslations } from '../locales/useTranslations';
 import { useTheme } from '../ui/theme/ThemeContext';
 import { TabNavigator } from './TabNavigator';
 import { SCREENS } from './types';

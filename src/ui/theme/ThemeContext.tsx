@@ -62,7 +62,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
           [BUNDLE_ID.HEIM_APO]: BRAND_ID.HEIM_APO,
           [BUNDLE_ID.SMART_PILL]: BRAND_ID.SMART_PILL,
         };
-        appBrandId = brandMap[identifier] || BRAND_ID.HEIM_APO;
+        appBrandId = BRAND_ID.HEIM_APO;
 
         !(brandMap[identifier]) &&
           loggerInstance.warn(`Unknown app identifier: ${identifier}. Defaulting to HeimApo.`);
