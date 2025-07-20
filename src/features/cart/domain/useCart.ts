@@ -5,7 +5,7 @@ import { BottomTabParamList, CartStackParamList, SCREENS } from '../../../naviga
 import { useTranslations } from '../../../ui/useTranslations';
 import { logger } from '../../../utils/logger';
 import { CartItem } from '../data/models';
-import { cartRepository } from '../data/repositories/cartRepository';
+import { CartRepository } from '../data/repositories/CartRepository';
 
 interface ContinueToCheckoutParams {
   navigation: NavigationProp<CartStackParamList>;
@@ -103,7 +103,7 @@ export const useCart = (): UseCartReturn => {
   const getCartItems = async (): Promise<void> => {
     try {
       setLoadingItems(true);
-      const items = await cartRepository.GetCartItems({ token: '1234', host: 'BASE_URL_PRODUCTION' });
+      const items = await CartRepository.getCartItems({ token: '1234', host: 'BASE_URL_PRODUCTION' });
       setCartItems(items);
     } catch (error) {
       logger.error('Failed to fetch cart items:', error);
