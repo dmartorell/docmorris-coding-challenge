@@ -104,6 +104,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <StyledPressable
+      testID="button"
       onPress={onPress}
       disabled={disabled || loading}
       className={`${baseButtonClasses} ${className}`}

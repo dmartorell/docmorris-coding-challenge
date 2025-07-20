@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { View } from 'react-native';
-import { useTranslations } from '../../../../ui/useTranslations';
+import { useTranslations } from '../../../../locales/useTranslations';
 import { Text } from '../../../../ui/components/Text';
 import { Button } from '../../../../ui/components/Button';
 

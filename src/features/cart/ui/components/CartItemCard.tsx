@@ -3,7 +3,7 @@ import { View, ViewStyle } from 'react-native';
 import { cssInterop } from 'nativewind/';
 import { useTheme } from '../../../../ui/theme/ThemeContext';
 import { RemoveButton } from '../../../../ui/components/RemoveButton';
-import { useTranslations } from '../../../../ui/useTranslations';
+import { useTranslations } from '../../../../locales/useTranslations';
 import { CartItem } from '../../data/models';
 import { CartItemHeader } from './CartItemHeader';
 import { CartItemImage } from './CartItemImage';

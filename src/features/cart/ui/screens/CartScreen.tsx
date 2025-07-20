@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import { FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { ScreenTemplate } from '../../../../ui/components/ScreenTemplate';
+import { ScreenTemplate } from '../../../../ui/templates/ScreenTemplate';
 import { CartEmptyState } from '../components/CartEmptyState';
 import { CartOrderSummaryFooter } from '../components/CartOrderSummaryFooter';
 import { useCart } from '../../domain/useCart';
 import { CartItemCard } from '../components/CartItemCard';
 import { BottomTabParamList, CartScreenNavigationProp, SCREENS } from '../../../../navigation/types';
-import { useTranslations } from '../../../../ui/useTranslations';
+import { useTranslations } from '../../../../locales/useTranslations';
 
 export const CartScreen: FC = () => {
   const { t } = useTranslations();

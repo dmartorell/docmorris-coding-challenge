@@ -6,7 +6,7 @@ import { logger } from '../../../../utils/logger';
 import { Text } from '../../../../ui/components/Text';
 import { Button } from '../../../../ui/components/Button';
 import { Logo } from '../../../../ui/components/Logo';
-import { useTranslations } from '../../../../ui/useTranslations';
+import { useTranslations } from '../../../../locales/useTranslations';
 import { CartItem } from '../../../cart/data/models';
 
 interface MedicationCheckoutItemCardProps {

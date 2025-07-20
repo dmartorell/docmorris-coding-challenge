@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 import { BottomTabParamList, CartStackParamList, SCREENS } from '../../../navigation/types';
-import { useTranslations } from '../../../ui/useTranslations';
+import { useTranslations } from '../../../locales/useTranslations';
 import { logger } from '../../../utils/logger';
 import { CartItem } from '../data/models';
 import { CartRepository } from '../data/repositories/CartRepository';

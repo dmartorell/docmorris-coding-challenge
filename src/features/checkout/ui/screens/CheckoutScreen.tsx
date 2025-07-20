@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
 import { FlatList } from 'react-native';
-import { ScreenTemplate } from '../../../../ui/components/ScreenTemplate';
+import { ScreenTemplate } from '../../../../ui/templates/ScreenTemplate';
 import { MedicationCheckoutItemCard } from '../components/MedicationCheckoutItemCard';
-import { useTranslations } from '../../../../ui/useTranslations';
+import { useTranslations } from '../../../../locales/useTranslations';
 import { CartOrderSummaryFooter } from '../../../cart/ui/components/CartOrderSummaryFooter';
 import { useTheme } from '../../../../ui/theme/ThemeContext';
 import { CartItem } from '../../../cart/data/models';
