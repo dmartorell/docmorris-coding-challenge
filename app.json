@@ -16,6 +16,7 @@
     "name": "Heim Apo",
     "newArchEnabled": true,
     "orientation": "portrait",
+    "scheme": "heimapo",
     "slug": "heim-apo",
     "splash": {
       "backgroundColor": "#ffffff",

@@ -10,19 +10,19 @@ const StyledView = cssInterop(View, { className: 'style' });
 interface CartItemControlsProps {
   quantity: number;
   price: number;
-  onQuantityChange: (newQuantity: number) => void;
+  onChangeQuantity: (newQuantity: number) => void;
 }
 
 export const CartItemControls: FC<CartItemControlsProps> = ({
   price,
   quantity,
-  onQuantityChange,
+  onChangeQuantity,
 }) => {
   return (
     <StyledView className="flex-row items-center justify-between mt-2">
       <QuantitySelector
         quantity={quantity}
-        onQuantityChange={onQuantityChange}
+        onChangeQuantity={onChangeQuantity}
       />
       <Text variant="body1" weight="semiBold" colorVariant="textPrimary">
         {formatCurrency(price * quantity)}

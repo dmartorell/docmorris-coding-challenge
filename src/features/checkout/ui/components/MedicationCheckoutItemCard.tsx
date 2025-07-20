@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { Image, View, ViewStyle } from 'react-native';
 import { cssInterop } from 'nativewind';
-import { CartItem } from '../../../cart/ui/components/CartItemCard';
 import { useTheme } from '../../../../ui/theme/ThemeContext';
 import { logger } from '../../../../utils/logger';
 import { Text } from '../../../../ui/components/Text';
 import { Button } from '../../../../ui/components/Button';
 import { Logo } from '../../../../ui/components/Logo';
 import { useTranslations } from '../../../../ui/useTranslations';
+import { CartItem } from '../../../cart/data/models';
 
 interface MedicationCheckoutItemCardProps {
   item: CartItem;
@@ -62,7 +62,7 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
           <StyledView className="self-start mt-6">
             <StyledView className="flex-row items-center">
               <Logo source={currentTheme.logoIcon}className='w-4 h-4 mr-2' />
-              <Button variant='link' size='sm' onPress={() => null}>{t('send_to_health_app')}</Button>
+              <Button variant='link' size='sm' onPress={() => null}>{t('save_to_health_app')}</Button>
             </StyledView>
           </StyledView>
         </StyledView>

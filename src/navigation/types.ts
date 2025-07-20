@@ -1,6 +1,6 @@
 import { NavigatorScreenParams, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { CartItem } from '../features/cart/ui/components/CartItemCard';
+import { CartItem } from '../features/cart/data/models';
 
 export const TAB_ROUTES_NAMES = {
   HOME: 'tab_home',
