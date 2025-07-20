@@ -1,5 +1,6 @@
 {
   "cart": "Cart",
+  "cart_item_arrival_date": "Delivery expected between Monday 22nd and Tuesday 23rd",
   "cart_order_summary": "Order Summary",
   "cart_order_summary_continue_to_checkout": "Continue",
   "cart_order_summary_discount": "Do you have any discount?",
@@ -13,10 +14,12 @@
   "cart_order_summary_total": "Total amount",
   "remove": "Remove",
   "screen_header_checkout": "Shipping and Payment",
+  "send_to_health_app": "Send to Health app",
   "shippings": "shippings",
-  "tab_name_categories": "Categories",
-  "tab_name_explore": "Explore",
-  "tab_name_home": "Home",
-  "tab_name_products": "products",
-  "tab_name_user": "User"
+  "tab_cart": "Cart",
+  "tab_categories": "Categories",
+  "tab_explore": "Explore",
+  "tab_home": "Home",
+  "tab_products": "products",
+  "tab_user": "User"
 }

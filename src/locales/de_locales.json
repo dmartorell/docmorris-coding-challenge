@@ -1,5 +1,6 @@
 {
   "cart": "Warenkorb",
+  "cart_item_arrival_date": "Lieferung voraussichtlich zwischen Montag, dem 22. und Dienstag, dem 23.",
   "cart_order_summary": "Bestellübersicht",
   "cart_order_summary_continue_to_checkout": "Weiter zur Kasse",
   "cart_order_summary_discount": "Haben Sie einen Gutschein?",
@@ -13,10 +14,12 @@
   "cart_order_summary_total": "Gesamtbetrag",
   "remove": "Entfernen",
   "screen_header_checkout": "Versand und Zahlung",
+  "send_to_health_app": "An die Gesundheits-App senden",
   "shippings": "Lieferungen",
-  "tab_name_categories": "Kategorien",
-  "tab_name_explore": "Entdecken",
-  "tab_name_home": "Startseite",
-  "tab_name_products": "Produkte",
-  "tab_name_user": "Benutzer"
+  "tab_cart": "Warenkorb",
+  "tab_categories": "Kategorien",
+  "tab_explore": "Entdecken",
+  "tab_home": "Startseite",
+  "tab_products": "Produkte",
+  "tab_user": "Benutzer"
 }

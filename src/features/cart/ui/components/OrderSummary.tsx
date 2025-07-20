@@ -61,7 +61,7 @@ export const OrderSummary: FC<OrderSummaryProps> = ({
 
   return (
     <StyledView
-      className="bg-white rounded-xl p-4 mt-6"
+      className="bg-white rounded-xl p-4"
       style={[{ backgroundColor: currentTheme.colors.surface }]}
     >
       <Text variant="title2" weight="semiBold" colorVariant="textPrimary" className="mb-4">
@@ -87,7 +87,7 @@ export const OrderSummary: FC<OrderSummaryProps> = ({
           {discountText}
         </Text>
       )}
-      <StyledView className="flex-row justify-between items-center mb-4 mt-2">
+      <StyledView className="flex-row justify-between mb-4 mt-2">
         <Text variant="title1" weight="semiBold" colorVariant="textPrimary">{amountText}</Text>
         <Text variant="title1" weight="semiBold" colorVariant="textPrimary">{formattedAmount}</Text>
       </StyledView>

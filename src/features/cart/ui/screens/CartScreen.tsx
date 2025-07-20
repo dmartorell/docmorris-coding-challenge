@@ -54,15 +54,13 @@ export const CartScreen: FC = () => {
       Alert.alert('Cart Empty', 'Please add items to your cart before checking out.');
       return;
     }
-    navigation.navigate(SCREENS.CHECKOUT_SCREEN);
+    navigation.navigate(SCREENS.CHECKOUT_SCREEN, { cartItems });
   };
-
-  const arrivalString = 'Delivery expected between Monday 22nd and Tuesday 23rd';
 
   const renderCartItem = ({ item }: { item: CartItem }) => (
     <CartItemCard
       item={item}
-      arrivalDate={arrivalString}
+      arrivalDate={t('cart_item_arrival_date')}
       onRemove={handleRemoveItem}
       onQuantityChange={handleQuantityChange}
       style={{ marginHorizontal: 16 }}
@@ -110,7 +108,6 @@ export const CartScreen: FC = () => {
           data={cartItems}
           renderItem={renderCartItem}
           keyExtractor={(item) => item.id}
-          style={{ flex: 1 }}
           contentContainerStyle={{ flexGrow: 1 }}
           showsVerticalScrollIndicator={false}
           ListFooterComponent={renderOrderSummary}

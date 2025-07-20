@@ -1,49 +1,28 @@
 import { FC } from 'react';
-import { View, Image, ViewStyle } from 'react-native';
-import { cssInterop } from 'nativewind/';
+import { Image, View, ViewStyle } from 'react-native';
+import { cssInterop } from 'nativewind';
+import { CartItem } from '../../../cart/ui/components/CartItemCard';
 import { useTheme } from '../../../../ui/theme/ThemeContext';
 import { logger } from '../../../../utils/logger';
 import { Text } from '../../../../ui/components/Text';
-import { RemoveButton } from '../../../../ui/components/RemoveButton';
+import { Button } from '../../../../ui/components/Button';
+import { Logo } from '../../../../ui/components/Logo';
 import { useTranslations } from '../../../../ui/useTranslations';
-import { QuantitySelector } from '../../../../ui/components/QuantitySelector';
-import { formatCurrency } from '../../../../utils/formatters';
+
+interface MedicationCheckoutItemCardProps {
+  item: CartItem;
+  // arrivalDate: string
+  // onRemove: (itemId: string) => void;
+  // onQuantityChange: (itemId: string, newQuantity: number) => void;
+  style?: ViewStyle;
+}
 
 const StyledView = cssInterop(View, { className: 'style' });
 const StyledImage = cssInterop(Image, { className: 'style' });
 
-export interface CartItem {
-  id: string;
-  brand: string;
-  tagLine: string;
-  imageUrl: string;
-  price: number;
-  quantity: number;
-  volume?: string;
-  type?: string;
-}
-
-interface CartItemCardProps {
-  item: CartItem;
-  arrivalDate: string
-  onRemove: (itemId: string) => void;
-  onQuantityChange: (itemId: string, newQuantity: number) => void;
-  style?: ViewStyle;
-}
-
-export const CartItemCard: FC<CartItemCardProps> = ({
-  item,
-  arrivalDate,
-  onRemove,
-  onQuantityChange,
-  style,
-}) => {
+export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = ({ item, style }) => {
   const { t } = useTranslations();
   const { currentTheme } = useTheme();
-
-  const handleRemovePress = () => {
-    onRemove(item.id);
-  };
 
   return (
     <StyledView
@@ -54,11 +33,6 @@ export const CartItemCard: FC<CartItemCardProps> = ({
       }, style,
       ]}
     >
-      <StyledView className="border-b py-4 mb-8 -mx-4" style={{ borderBottomColor: currentTheme.colors.border }}>
-        <Text variant="body2" weight="regular" colorVariant="textPrimary" className='px-4'>
-          {arrivalDate}
-        </Text>
-      </StyledView>
       <StyledView className="flex-row">
         <StyledView className="w-24 h-40 mr-4 overflow-hidden"
           style={{ borderColor: currentTheme.colors.border }}
@@ -72,7 +46,6 @@ export const CartItemCard: FC<CartItemCardProps> = ({
           />
         </StyledView>
         <StyledView className="flex-1 flex-col justify-between">
-
           <StyledView>
             <Text variant="caption1" weight="regular" colorVariant="textSecondary">
               {item.brand}
@@ -86,16 +59,12 @@ export const CartItemCard: FC<CartItemCardProps> = ({
               </Text>
             )}
           </StyledView>
-          <StyledView className="flex-row items-center justify-between mt-2">
-            <QuantitySelector
-              quantity={item.quantity}
-              onQuantityChange={(newQuantity) => onQuantityChange(item.id, newQuantity)}
-            />
-            <Text variant="body1" weight="semiBold" colorVariant="textPrimary">
-              {formatCurrency(item.price * item.quantity)}
-            </Text>
+          <StyledView className="self-start mt-6">
+            <StyledView className="flex-row items-center">
+              <Logo source={currentTheme.logoIcon}className='w-4 h-4 mr-2' />
+              <Button variant='link' size='sm' onPress={() => null}>{t('send_to_health_app')}</Button>
+            </StyledView>
           </StyledView>
-          <RemoveButton onPress={handleRemovePress} label={t('remove')}/>
         </StyledView>
       </StyledView>
     </StyledView>
