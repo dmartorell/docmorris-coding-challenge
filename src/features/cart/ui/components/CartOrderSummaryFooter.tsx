@@ -10,7 +10,7 @@ import { Logo } from '../../../../ui/components/Logo';
 
 const StyledView = cssInterop(View, { className: 'style' });
 
-interface OrderSummaryProps {
+interface CartOrderSummaryFooterProps {
   summaryTitle: string;
   subtotal: number;
   subtotalText: string;
@@ -29,11 +29,10 @@ interface OrderSummaryProps {
   loyaltyLevel?: number;
   loayaltyLevelText?: string;
   onContinue: () => void;
-  className?: string;
   style?: ViewStyle;
 }
 
-export const OrderSummary: FC<OrderSummaryProps> = ({
+export const CartOrderSummaryFooter: FC<CartOrderSummaryFooterProps> = ({
   summaryTitle,
   subtotal,
   subtotalText,
@@ -55,10 +54,6 @@ export const OrderSummary: FC<OrderSummaryProps> = ({
 }) => {
   const { currentTheme } = useTheme();
 
-  const formattedAmount = formatCurrency(amount);
-  const formattedShippingCount = formatCurrency(shipping);
-  const fomattedSubtotal = formatCurrency(subtotal);
-
   return (
     <StyledView
       className="bg-white rounded-xl p-4"
@@ -72,7 +67,7 @@ export const OrderSummary: FC<OrderSummaryProps> = ({
           <Text variant="body1" colorVariant="textPrimary">{subtotalText}</Text>
           <Text variant="caption1" colorVariant="textPrimary">{productAmountText}</Text>
         </StyledView>
-        <Text variant="body1" colorVariant="textPrimary">{fomattedSubtotal}</Text>
+        <Text variant="body1" colorVariant="textPrimary">{formatCurrency(subtotal)}</Text>
       </StyledView>
       <StyledView className="border-b border-gray-200 my-4" />
       <StyledView className="flex-row justify-between mb-2">
@@ -80,7 +75,7 @@ export const OrderSummary: FC<OrderSummaryProps> = ({
           <Text variant="body1" colorVariant="textPrimary">{shippingCostText}</Text>
           <Text variant="caption1" colorVariant="textPrimary">{shippingAmountText}</Text>
         </ StyledView>
-        <Text variant="body1" colorVariant="textPrimary">{formattedShippingCount}</Text>
+        <Text variant="body1" colorVariant="textPrimary">{formatCurrency(shipping)}</Text>
       </StyledView>
       {discountText && (
         <Text variant="body3" colorVariant="secondary" className="mb-2">
@@ -89,7 +84,7 @@ export const OrderSummary: FC<OrderSummaryProps> = ({
       )}
       <StyledView className="flex-row justify-between mb-4 mt-2">
         <Text variant="title1" weight="semiBold" colorVariant="textPrimary">{amountText}</Text>
-        <Text variant="title1" weight="semiBold" colorVariant="textPrimary">{formattedAmount}</Text>
+        <Text variant="title1" weight="semiBold" colorVariant="textPrimary">{formatCurrency(amount)}</Text>
       </StyledView>
       {healthPoints && (
         <StyledView className="flex-row items-center mb-2 gap-2">

@@ -4,8 +4,8 @@ import { FlatList } from 'react-native';
 import { ScreenTemplate } from '../../../../ui/components/ScreenTemplate';
 import { CartItem } from '../../../cart/ui/components/CartItemCard';
 import { MedicationCheckoutItemCard } from '../components/MedicationCheckoutItemCard';
-import { OrderSummary } from '../../../cart/ui/components/OrderSummary';
 import { useTranslations } from '../../../../ui/useTranslations';
+import { CartOrderSummaryFooter } from '../../../cart/ui/components/CartOrderSummaryFooter';
 
 type CheckoutScreenRouteParams = {
   cartItems: CartItem[];
@@ -22,7 +22,7 @@ export const CheckoutScreen = () => {
   const medicationItems = cartItems.filter(item => item.type === 'medication');
 
   const renderOrderSummary = () => (
-    <OrderSummary
+    <CartOrderSummaryFooter
       shipping={3.99}
       amount={40 + 3.99}
       summaryTitle={t('cart_order_summary')}

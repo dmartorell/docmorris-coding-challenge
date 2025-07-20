@@ -1,6 +1,6 @@
 import { CartItem } from '../ui/components/CartItemCard';
 
-export const initialMockCartItems: CartItem[] = [
+export const mockCartItems: CartItem[] = [
   {
     id: '4',
     type: 'medication',

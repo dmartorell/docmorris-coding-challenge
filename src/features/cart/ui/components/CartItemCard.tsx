@@ -1,16 +1,15 @@
 import { FC } from 'react';
-import { View, Image, ViewStyle } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { cssInterop } from 'nativewind/';
 import { useTheme } from '../../../../ui/theme/ThemeContext';
-import { logger } from '../../../../utils/logger';
-import { Text } from '../../../../ui/components/Text';
 import { RemoveButton } from '../../../../ui/components/RemoveButton';
 import { useTranslations } from '../../../../ui/useTranslations';
-import { QuantitySelector } from '../../../../ui/components/QuantitySelector';
-import { formatCurrency } from '../../../../utils/formatters';
+import { CartItemHeader } from './CartItemHeader';
+import { CartItemImage } from './CartItemImage';
+import { CartItemDetails } from './CartItemDetails';
+import { CartItemControls } from './CartItemControls';
 
 const StyledView = cssInterop(View, { className: 'style' });
-const StyledImage = cssInterop(Image, { className: 'style' });
 
 export interface CartItem {
   id: string;
@@ -41,7 +40,7 @@ export const CartItemCard: FC<CartItemCardProps> = ({
   const { t } = useTranslations();
   const { currentTheme } = useTheme();
 
-  const handleRemovePress = () => {
+  const onRemoveItem = () => {
     onRemove(item.id);
   };
 
@@ -54,48 +53,24 @@ export const CartItemCard: FC<CartItemCardProps> = ({
       }, style,
       ]}
     >
-      <StyledView className="border-b py-4 mb-8 -mx-4" style={{ borderBottomColor: currentTheme.colors.border }}>
-        <Text variant="body2" weight="regular" colorVariant="textPrimary" className='px-4'>
-          {arrivalDate}
-        </Text>
-      </StyledView>
+      <CartItemHeader arrivalDate={arrivalDate} />
       <StyledView className="flex-row">
-        <StyledView className="w-24 h-40 mr-4 overflow-hidden"
-          style={{ borderColor: currentTheme.colors.border }}
-        >
-          <StyledImage
-            source={{ uri: item.imageUrl }}
-            className="w-full h-full"
-            style={{ resizeMode: 'cover' }}
-            accessibilityLabel={item.brand}
-            onError={(e) => logger.error(`Failed to load image for ${item.brand}:`, e.nativeEvent.error)}
-          />
-        </StyledView>
+        <CartItemImage
+          imageUrl={item.imageUrl}
+          accessibilityLabel={item.brand}
+        />
         <StyledView className="flex-1 flex-col justify-between">
-
-          <StyledView>
-            <Text variant="caption1" weight="regular" colorVariant="textSecondary">
-              {item.brand}
-            </Text>
-            <Text variant="body3" weight="regular" colorVariant="textPrimary">
-              {item.tagLine}
-            </Text>
-            {!!item.volume && (
-              <Text variant="body3" weight="regular" colorVariant="textPrimary">
-                {item.volume}
-              </Text>
-            )}
-          </StyledView>
-          <StyledView className="flex-row items-center justify-between mt-2">
-            <QuantitySelector
-              quantity={item.quantity}
-              onQuantityChange={(newQuantity) => onQuantityChange(item.id, newQuantity)}
-            />
-            <Text variant="body1" weight="semiBold" colorVariant="textPrimary">
-              {formatCurrency(item.price * item.quantity)}
-            </Text>
-          </StyledView>
-          <RemoveButton onPress={handleRemovePress} label={t('remove')}/>
+          <CartItemDetails
+            brand={item.brand}
+            tagLine={item.tagLine}
+            volume={item.volume}
+          />
+          <CartItemControls
+            quantity={item.quantity}
+            price={item.price}
+            onQuantityChange={(newQuantity) => onQuantityChange(item.id, newQuantity)}
+          />
+          <RemoveButton onPress={onRemoveItem} label={t('remove')}/>
         </StyledView>
       </StyledView>
     </StyledView>
