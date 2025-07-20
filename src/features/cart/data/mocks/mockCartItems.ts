@@ -2,7 +2,7 @@ import { ApiCartItem } from '../models';
 
 export const mockCartItems: ApiCartItem[] = [
   {
-    id: '4',
+    id: '1',
     product_type: 'medication',
     tag_line: 'Cetirizine Allergy Relief',
     brand: 'Zyrtec',
@@ -12,7 +12,7 @@ export const mockCartItems: ApiCartItem[] = [
     product_volume: '10 tablets',
   },
   {
-    id: '1',
+    id: '2',
     product_type: 'product',
     tag_line: 'Eucerin Sun Cream SPF 50+',
     brand: 'Eucerin',
@@ -22,7 +22,7 @@ export const mockCartItems: ApiCartItem[] = [
     product_volume: '50ml',
   },
   {
-    id: '2',
+    id: '3',
     product_type: 'medication',
     tag_line: 'Ibuprofen 400mg Tablets',
     brand: 'Ratiopharm',
@@ -32,7 +32,7 @@ export const mockCartItems: ApiCartItem[] = [
     product_volume: '20 tablets',
   },
   {
-    id: '3',
+    id: '4',
     product_type: 'medication',
     tag_line: 'Paracetamol 500mg Caplets',
     brand: 'Hexal',
@@ -42,7 +42,7 @@ export const mockCartItems: ApiCartItem[] = [
     product_volume: '16 caplets',
   },
   {
-    id: '6',
+    id: '5',
     product_type: 'product',
     tag_line: 'Herbalife Chamomile Tea',
     brand: 'Herbalife',

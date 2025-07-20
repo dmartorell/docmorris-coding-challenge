@@ -46,7 +46,7 @@ export const CartItemCard: FC<CartItemCardProps> = ({
       <CartItemHeader arrivalDate={arrivalDate} />
       <StyledView className="flex-row">
         <CartItemImage
-          imageUrl={item.imageUrl}
+          imageUrl={item.imageUrl ?? ''}
           accessibilityLabel={item.brand}
         />
         <StyledView className="flex-1 flex-col justify-between">

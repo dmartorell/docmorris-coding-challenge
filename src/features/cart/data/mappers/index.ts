@@ -6,9 +6,9 @@ export const mapApiCartItemsToDomain = (apiCartItems: ApiCartItem[]): CartItem[]
     type: item.product_type,
     tagLine: item.tag_line,
     brand: item.brand,
-    imageUrl: item.image_url,
+    imageUrl: item.image_url ?? '',
     price: item.price,
     quantity: item.quantity_in_cart,
-    volume: item.product_volume,
+    volume: item.product_volume ?? undefined,
   }));
 };

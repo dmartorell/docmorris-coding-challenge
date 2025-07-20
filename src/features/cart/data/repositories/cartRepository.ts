@@ -3,8 +3,8 @@ import { fetchCartItems } from '../cartService';
 import { mapApiCartItemsToDomain } from '../mappers';
 import { CartItem } from '../models';
 
-export const cartRepository = {
-  GetCartItems: async ({
+export const CartRepository = {
+  getCartItems: async ({
     token,
     host,
   }: {

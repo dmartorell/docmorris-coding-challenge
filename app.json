@@ -27,6 +27,9 @@
         "resizeMode": "contain"
       },
       "image": "./assets/heimApo/splash-icon.png",
+      "jest": {
+        "preset": "jest-expo"
+      },
       "resizeMode": "contain"
     },
     "userInterfaceStyle": "light",
