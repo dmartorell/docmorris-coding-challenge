@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "start": "expo start",
+    "start": "expo start --dev-client",
     "prebuild": "expo prebuild",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "lint": "eslint --quiet --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --quiet",
+    "lint:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
     "typescript": "tsc --noEmit"
   },
   "dependencies": {

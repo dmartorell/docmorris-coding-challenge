@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
 import { FlatList } from 'react-native';
 import { ScreenTemplate } from '../../../../ui/components/ScreenTemplate';
-import { CartItem } from '../../../cart/ui/components/CartItemCard';
 import { MedicationCheckoutItemCard } from '../components/MedicationCheckoutItemCard';
 import { useTranslations } from '../../../../ui/useTranslations';
 import { CartOrderSummaryFooter } from '../../../cart/ui/components/CartOrderSummaryFooter';
+import { useTheme } from '../../../../ui/theme/ThemeContext';
+import { CartItem } from '../../../cart/data/models';
 
 type CheckoutScreenRouteParams = {
   cartItems: CartItem[];
@@ -14,8 +15,9 @@ type CheckoutScreenRouteParams = {
 const simulateDelay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const CheckoutScreen = () => {
-  const { params } = useRoute();
   const { t } = useTranslations();
+  const { currentTheme } = useTheme();
+  const { params } = useRoute();
   const { cartItems } = params as CheckoutScreenRouteParams;
   const [isLoadingData, setIsLoadingData] = useState<boolean>(true);
 
@@ -55,7 +57,7 @@ export const CheckoutScreen = () => {
   return (
     <ScreenTemplate
       isLoading={isLoadingData}
-      className='mb-8 '
+      style={{ paddingBottom: currentTheme.spacing.md * 2 }}
     >
       {!!cartItems.length && (
         <FlatList
@@ -64,6 +66,7 @@ export const CheckoutScreen = () => {
           keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
           ListFooterComponent={renderOrderSummary}
+          bounces={false}
         />
       )}
     </ScreenTemplate>

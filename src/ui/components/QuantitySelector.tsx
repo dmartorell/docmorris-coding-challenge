@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { View, Pressable, ViewStyle } from 'react-native';
 import { cssInterop } from 'nativewind';
 import { useTheme } from '../theme/ThemeContext';
@@ -10,17 +10,17 @@ const StyledPressable = cssInterop(Pressable, { className: 'style' });
 
 interface QuantitySelectorProps {
   quantity: number;
-  onQuantityChange: (newQuantity: number) => void;
+  onChangeQuantity: (newQuantity: number) => void;
   minQuantity?: number;
   maxQuantity?: number;
   className?: string;
   style?: ViewStyle;
 }
 
-export const QuantitySelector: React.FC<QuantitySelectorProps> = ({
+export const QuantitySelector: FC<QuantitySelectorProps> = ({
   quantity,
   style,
-  onQuantityChange,
+  onChangeQuantity,
   minQuantity = 1,
   maxQuantity,
   className = '',
@@ -33,7 +33,7 @@ export const QuantitySelector: React.FC<QuantitySelectorProps> = ({
       logger.warn(`Cannot increment quantity beyond maximum: ${maxQuantity}`);
       return;
     }
-    onQuantityChange(newQuantity);
+    onChangeQuantity(newQuantity);
   };
 
   const handleDecrement = () => {
@@ -41,7 +41,7 @@ export const QuantitySelector: React.FC<QuantitySelectorProps> = ({
     if (newQuantity < minQuantity) {
       return;
     }
-    onQuantityChange(newQuantity);
+    onChangeQuantity(newQuantity);
   };
 
   return (

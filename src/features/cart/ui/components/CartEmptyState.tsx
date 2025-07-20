@@ -12,7 +12,7 @@ export const CartEmptyState: FC<CartEmptyStateProps> = ({ onPress }) => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text variant="body1" colorVariant="textMuted">{t('cart_empty_message')}</Text>
+      <Text variant="body1" colorVariant="textMuted">{t('cart_empty_state_description')}</Text>
       <Button onPress={onPress} variant="link" className="mt-4">
         {t('start_shopping_button_label')}
       </Button>

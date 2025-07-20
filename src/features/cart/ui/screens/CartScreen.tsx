@@ -1,83 +1,54 @@
-import React, { FC, useState, useMemo } from 'react';
-import { FlatList, Alert } from 'react-native';
+import React, { FC } from 'react';
+import { FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { CartItem, CartItemCard } from '../components/CartItemCard';
-import { CartScreenNavigationProp, SCREENS } from '../../../../navigation/types';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import { ScreenTemplate } from '../../../../ui/components/ScreenTemplate';
-import { useTranslations } from '../../../../ui/useTranslations';
-import { mockCartItems } from '../../data/mockCartItems';
 import { CartEmptyState } from '../components/CartEmptyState';
 import { CartOrderSummaryFooter } from '../components/CartOrderSummaryFooter';
+import { useCart } from '../../domain/useCart';
+import { CartItemCard } from '../components/CartItemCard';
+import { BottomTabParamList, CartScreenNavigationProp, SCREENS } from '../../../../navigation/types';
+import { useTranslations } from '../../../../ui/useTranslations';
 
 export const CartScreen: FC = () => {
   const { t } = useTranslations();
+  const rootNavigation = useNavigation<BottomTabNavigationProp<BottomTabParamList>>();
   const navigation = useNavigation<CartScreenNavigationProp>();
-  const rootNavigation = useNavigation<any>();
 
-  const [cartItems, setCartItems] = useState<CartItem[]>(mockCartItems);
-  const totalPrice = useMemo(() => {
-    return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  }, [cartItems]);
-
-  const totalItems = useMemo(() => {
-    return cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  }, [cartItems]);
-
-  const handleRemoveItem = (itemId: string) => {
-    Alert.alert(
-      'Remove Item',
-      'Are you sure you want to remove this item from your cart?',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Remove',
-          style: 'destructive',
-          onPress: () => {
-            setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
-          },
-        },
-      ],
-    );
-  };
-
-  const handleQuantityChange = (itemId: string, newQuantity: number) => {
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item,
-      ),
-    );
-  };
-
-  const onStartShopping = () => {
-    rootNavigation.navigate(SCREENS.HOME_TAB, { screen: SCREENS.HOME_SCREEN });
-  };
-
-  const onContinueToCheckout = () => {
-    if (cartItems.length === 0) {
-      Alert.alert('Cart Empty', 'Please add items to your cart before checking out.');
-      return;
-    }
-    navigation.navigate(SCREENS.CHECKOUT_SCREEN, { cartItems });
-  };
-
-  const renderCartItem = ({ item }: { item: CartItem }) => (
-    <CartItemCard
-      item={item}
-      arrivalDate={t('cart_item_arrival_date')}
-      onRemove={handleRemoveItem}
-      onQuantityChange={handleQuantityChange}
-      style={{ marginHorizontal: 16 }}
-    />
-  );
+  const {
+    cartItems,
+    totalPrice,
+    totalItems,
+    onRemoveItem,
+    onChangeQuantity,
+    onStartShopping,
+    onContinueToCheckout,
+    loadingItems: isLoadingItems,
+  } = useCart();
 
   return (
-    <ScreenTemplate>
+    <ScreenTemplate isLoading={isLoadingItems}>
       <FlatList
         data={cartItems}
-        renderItem={renderCartItem}
+        renderItem={({ item }) => (
+          <CartItemCard
+            item={item}
+            arrivalDate={t('cart_item_arrival_date')}
+            onRemove={onRemoveItem}
+            onChangeQuantity={onChangeQuantity}
+            style={{ marginHorizontal: 16 }}
+          />
+        )}
         keyExtractor={(item) => item.id}
         ListEmptyComponent={() => {
-          return <CartEmptyState onPress={onStartShopping} />;
+          return (
+            <CartEmptyState onPress={() => onStartShopping({
+              rootNavigation,
+              homeTabName: SCREENS.HOME_TAB,
+              homeScreenName: SCREENS.HOME_SCREEN,
+            })}
+            />
+          );
         }}
         ListFooterComponent={() => {
           return (
@@ -90,7 +61,11 @@ export const CartScreen: FC = () => {
                 loyaltyLevel={2}
                 summaryTitle={t('cart_order_summary')}
                 subtotal={totalPrice}
-                onContinue={onContinueToCheckout}
+                onContinue={() => onContinueToCheckout({
+                  navigation,
+                  checkoutScreenName: SCREENS.CHECKOUT_SCREEN,
+                  tFunction: t,
+                })}
                 productAmountText={t('cart_order_summary_product_count', { count: totalItems })}
                 subtotalText={t('cart_order_summary_subtotal')}
                 buttonText={t('cart_order_summary_continue_to_checkout')}
@@ -106,6 +81,7 @@ export const CartScreen: FC = () => {
         }}
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
+        bounces={false}
       />
     </ScreenTemplate>
   );

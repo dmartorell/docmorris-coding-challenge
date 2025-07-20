@@ -4,6 +4,7 @@ import { cssInterop } from 'nativewind/';
 import { useTheme } from '../../../../ui/theme/ThemeContext';
 import { RemoveButton } from '../../../../ui/components/RemoveButton';
 import { useTranslations } from '../../../../ui/useTranslations';
+import { CartItem } from '../../data/models';
 import { CartItemHeader } from './CartItemHeader';
 import { CartItemImage } from './CartItemImage';
 import { CartItemDetails } from './CartItemDetails';
@@ -11,22 +12,11 @@ import { CartItemControls } from './CartItemControls';
 
 const StyledView = cssInterop(View, { className: 'style' });
 
-export interface CartItem {
-  id: string;
-  brand: string;
-  tagLine: string;
-  imageUrl: string;
-  price: number;
-  quantity: number;
-  volume?: string;
-  type?: string;
-}
-
 interface CartItemCardProps {
   item: CartItem;
   arrivalDate: string
   onRemove: (itemId: string) => void;
-  onQuantityChange: (itemId: string, newQuantity: number) => void;
+  onChangeQuantity: (itemId: string, newQuantity: number) => void;
   style?: ViewStyle;
 }
 
@@ -34,7 +24,7 @@ export const CartItemCard: FC<CartItemCardProps> = ({
   item,
   arrivalDate,
   onRemove,
-  onQuantityChange,
+  onChangeQuantity,
   style,
 }) => {
   const { t } = useTranslations();
@@ -68,7 +58,7 @@ export const CartItemCard: FC<CartItemCardProps> = ({
           <CartItemControls
             quantity={item.quantity}
             price={item.price}
-            onQuantityChange={(newQuantity) => onQuantityChange(item.id, newQuantity)}
+            onChangeQuantity={(newQuantity) => onChangeQuantity(item.id, newQuantity)}
           />
           <RemoveButton onPress={onRemoveItem} label={t('remove')}/>
         </StyledView>
