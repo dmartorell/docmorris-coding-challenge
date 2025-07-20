@@ -29,6 +29,7 @@
     "expo-splash-screen": "0.30.10",
     "expo-status-bar": "2.2.3",
     "expo-system-ui": "^5.0.10",
+    "healthkit-writer": "file:./modules/healthkit-writer",
     "i18next": "^25.3.2",
     "nativewind": "^4.1.23",
     "react": "19.0.0",

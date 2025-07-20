@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["HealthkitWriterModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.healthkitwriter.HealthkitWriterModule"]
+  }
+}

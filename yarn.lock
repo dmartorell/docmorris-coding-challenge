@@ -4174,6 +4174,9 @@ hasown@^2.0.2:
   dependencies:
     function-bind "^1.1.2"
 
+"healthkit-writer@file:./modules/healthkit-writer":
+  version "0.1.0"
+
 hermes-estree@0.25.1:
   version "0.25.1"
   resolved "https://registry.yarnpkg.com/hermes-estree/-/hermes-estree-0.25.1.tgz#6aeec17d1983b4eabf69721f3aa3eb705b17f480"

@@ -30,6 +30,9 @@
       "jest": {
         "preset": "jest-expo"
       },
+      "plugins": [
+        "healthkit-writer"
+      ],
       "resizeMode": "contain"
     },
     "userInterfaceStyle": "light",
