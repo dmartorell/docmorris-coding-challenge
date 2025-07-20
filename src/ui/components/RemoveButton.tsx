@@ -1,6 +1,4 @@
-// src/ui/components/RemoveButton.tsx
-
-import React from 'react';
+import React, { FC } from 'react';
 import { Pressable, ViewStyle } from 'react-native';
 import { cssInterop } from 'nativewind';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
@@ -10,14 +8,14 @@ import { Text } from './Text';
 const StyledPressable = cssInterop(Pressable, { className: 'style' });
 
 interface RemoveButtonProps {
-  onPress: () => void;
   label: string;
   className?: string;
-  style?: ViewStyle;
+  onPress: () => void;
   iconSize?: number;
+  style?: ViewStyle;
 }
 
-export const RemoveButton: React.FC<RemoveButtonProps> = ({
+export const RemoveButton: FC<RemoveButtonProps> = ({
   onPress,
   className = '',
   style,
