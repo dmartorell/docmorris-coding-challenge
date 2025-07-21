@@ -10,12 +10,8 @@ export const CartRepository = {
   token: string;
   host: string;
 }): Promise<CartItem[]> => {
-    try {
-      const apiItems = await fetchCartItems(token, host);
-      const domainItems = mapApiCartItemsToDomain(apiItems);
-      return domainItems;
-    } catch (error) {
-      throw error;
-    }
+    const apiItems = await fetchCartItems(token, host);
+    const domainItems = mapApiCartItemsToDomain(apiItems);
+    return domainItems;
   },
 };

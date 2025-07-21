@@ -2,7 +2,7 @@ import { useEvent } from 'expo';
 import HealthkitWriter, { HealthkitWriterView } from 'healthkit-writer';
 import { Button, SafeAreaView, ScrollView, Text, View } from 'react-native';
 
-export default function App() {
+export default function App () {
   const onChangePayload = useEvent(HealthkitWriter, 'onChange');
 
   return (
@@ -38,7 +38,7 @@ export default function App() {
   );
 }
 
-function Group(props: { name: string; children: React.ReactNode }) {
+function Group (props: { name: string; children: React.ReactNode }) {
   return (
     <View style={styles.group}>
       <Text style={styles.groupHeader}>{props.name}</Text>

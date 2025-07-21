@@ -24,7 +24,7 @@ jest.mock('../../../utils/logger', () => ({
 describe('QuantitySelector', () => {
   it('renders the quantity', () => {
     const { getByText } = render(
-      <QuantitySelector quantity={2} onChangeQuantity={() => {}} />
+      <QuantitySelector quantity={2} onChangeQuantity={() => {}} />,
     );
     expect(getByText('2')).toBeTruthy();
   });
@@ -32,7 +32,7 @@ describe('QuantitySelector', () => {
   it('calls onChangeQuantity with incremented value', () => {
     const onChangeQuantity = jest.fn();
     const { getByText } = render(
-      <QuantitySelector quantity={2} onChangeQuantity={onChangeQuantity} />
+      <QuantitySelector quantity={2} onChangeQuantity={onChangeQuantity} />,
     );
     fireEvent.press(getByText('+'));
     expect(onChangeQuantity).toHaveBeenCalledWith(3);
@@ -41,7 +41,7 @@ describe('QuantitySelector', () => {
   it('calls onChangeQuantity with decremented value', () => {
     const onChangeQuantity = jest.fn();
     const { getByText } = render(
-      <QuantitySelector quantity={2} onChangeQuantity={onChangeQuantity} />
+      <QuantitySelector quantity={2} onChangeQuantity={onChangeQuantity} />,
     );
     fireEvent.press(getByText('-'));
     expect(onChangeQuantity).toHaveBeenCalledWith(1);
@@ -50,7 +50,7 @@ describe('QuantitySelector', () => {
   it('does not decrement below minQuantity', () => {
     const onChangeQuantity = jest.fn();
     const { getByText } = render(
-      <QuantitySelector quantity={1} onChangeQuantity={onChangeQuantity} minQuantity={1} />
+      <QuantitySelector quantity={1} onChangeQuantity={onChangeQuantity} minQuantity={1} />,
     );
     fireEvent.press(getByText('-'));
     expect(onChangeQuantity).not.toHaveBeenCalled();
@@ -59,7 +59,7 @@ describe('QuantitySelector', () => {
   it('does not increment above maxQuantity and logs warning', () => {
     const onChangeQuantity = jest.fn();
     const { getByText } = render(
-      <QuantitySelector quantity={5} onChangeQuantity={onChangeQuantity} maxQuantity={5} />
+      <QuantitySelector quantity={5} onChangeQuantity={onChangeQuantity} maxQuantity={5} />,
     );
     fireEvent.press(getByText('+'));
     expect(onChangeQuantity).not.toHaveBeenCalled();

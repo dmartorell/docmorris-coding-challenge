@@ -3,7 +3,7 @@ import { requireNativeModule } from 'expo-modules-core';
 export interface MedicationData {
   name: string;
   brand: string;
-  notes: string; 
+  notes: string;
 }
 
 interface HealthKitWriterModule {

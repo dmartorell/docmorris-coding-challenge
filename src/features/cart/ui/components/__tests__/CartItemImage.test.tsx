@@ -21,7 +21,7 @@ jest.mock('../../../../../utils/logger', () => ({
 describe('CartItemImage', () => {
   it('renders image with correct source and accessibilityLabel', () => {
     const { getByLabelText } = render(
-      <CartItemImage imageUrl="https://example.com/image.jpg" accessibilityLabel="Product image" />
+      <CartItemImage imageUrl="https://example.com/image.jpg" accessibilityLabel="Product image" />,
     );
     const image = getByLabelText('Product image');
     expect(image.props.source).toEqual({ uri: 'https://example.com/image.jpg' });
@@ -30,14 +30,14 @@ describe('CartItemImage', () => {
 
   it('calls logger.error on image load error', () => {
     const { getByLabelText } = render(
-      <CartItemImage imageUrl="https://example.com/image.jpg" accessibilityLabel="Product image" />
+      <CartItemImage imageUrl="https://example.com/image.jpg" accessibilityLabel="Product image" />,
     );
     const image = getByLabelText('Product image');
     image.props.onError({ nativeEvent: { error: '404' } });
     const { logger } = require('../../../../../utils/logger');
     expect(logger.error).toHaveBeenCalledWith(
       'Failed to load image for Product image:',
-      '404'
+      '404',
     );
   });
 });

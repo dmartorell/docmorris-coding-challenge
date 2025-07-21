@@ -1,5 +1,3 @@
-// src/features/checkout/ui/components/MedicationCheckoutItemCard.tsx (UPDATED for HealthKit Integration)
-
 import { FC } from 'react';
 import { Image, View, ViewStyle, Alert } from 'react-native';
 import { cssInterop } from 'nativewind';
@@ -28,15 +26,13 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
 
   const appName = appConfig.expo?.name || 'App';
 
-  // --- NEW: Handle "Save to Health App" ---
   const handleSaveToHealthApp = async () => {
-    // 1. Request HealthKit Authorization
     try {
       const authorized = await HealthKitWriter.requestMedicationAuthorization();
       if (!authorized) {
         Alert.alert(
           t('healthkit_permission_denied_title'),
-          t('healthkit_permission_denied_message')
+          t('healthkit_permission_denied_message'),
         );
         return;
       }

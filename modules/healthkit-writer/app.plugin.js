@@ -14,9 +14,9 @@ const withHealthKit = (config) => {
   });
 
   config = withEntitlementsPlist(config, (config) => {
-  config.modResults['com.apple.developer.healthkit'] = true;
-  return config;
-});
+    config.modResults['com.apple.developer.healthkit'] = true;
+    return config;
+  });
 
   return config;
 };

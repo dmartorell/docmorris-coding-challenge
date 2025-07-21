@@ -3,21 +3,21 @@ import { render, fireEvent } from '@testing-library/react-native';
 import { CartEmptyState } from '../CartEmptyState';
 
 jest.mock('../../../../../ui/useTranslations', () => ({
-  useTranslations: () => ({ t: (key: string) => key })
+  useTranslations: () => ({ t: (key: string) => key }),
 }));
 
 jest.mock('../../../../../ui/components/Text', () => ({
   Text: ({ children, ...props }: any) => {
     const { Text } = require('react-native');
     return <Text {...props}>{children}</Text>;
-  }
+  },
 }));
 
 jest.mock('../../../../../ui/components/Button', () => ({
   Button: ({ children, onPress, ...props }: any) => {
     const { Text } = require('react-native');
     return <Text onPress={onPress}>{children}</Text>;
-  }
+  },
 }));
 
 jest.mock('nativewind/', () => ({

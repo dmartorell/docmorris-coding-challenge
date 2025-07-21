@@ -4,7 +4,7 @@ import { CartItemCard } from '../CartItemCard';
 import { CartItem } from '../../../data/models';
 
 jest.mock('../../../../../ui/useTranslations', () => ({
-  useTranslations: () => ({ t: (key: string) => key })
+  useTranslations: () => ({ t: (key: string) => key }),
 }));
 
 jest.mock('../../../../../ui/theme/ThemeContext', () => ({
@@ -22,42 +22,42 @@ jest.mock('../../../../../ui/components/Text', () => ({
   Text: ({ children, ...props }: any) => {
     const { Text } = require('react-native');
     return <Text {...props}>{children}</Text>;
-  }
+  },
 }));
 
 jest.mock('../../../../../ui/components/Button', () => ({
   Button: ({ children, onPress, ...props }: any) => {
     const { Text } = require('react-native');
     return <Text onPress={onPress} {...props}>{children}</Text>;
-  }
+  },
 }));
 
 jest.mock('../../../../../ui/components/RemoveButton', () => ({
   RemoveButton: ({ onPress, label, ...props }: any) => {
     const { Text } = require('react-native');
     return <Text onPress={onPress} {...props}>{label}</Text>;
-  }
+  },
 }));
 
 jest.mock('../CartItemHeader', () => ({
   CartItemHeader: ({ arrivalDate, ...props }: any) => {
     const { Text } = require('react-native');
     return <Text {...props}>CartItemHeader: {arrivalDate}</Text>;
-  }
+  },
 }));
 
 jest.mock('../CartItemImage', () => ({
   CartItemImage: ({ imageUrl, accessibilityLabel, ...props }: any) => {
     const { Text } = require('react-native');
     return <Text {...props}>CartItemImage: {imageUrl} - {accessibilityLabel}</Text>;
-  }
+  },
 }));
 
 jest.mock('../CartItemDetails', () => ({
   CartItemDetails: ({ brand, tagLine, volume, ...props }: any) => {
     const { Text } = require('react-native');
     return <Text {...props}>CartItemDetails: {brand} - {tagLine} - {volume}</Text>;
-  }
+  },
 }));
 
 jest.mock('../CartItemControls', () => ({
@@ -70,7 +70,7 @@ jest.mock('../CartItemControls', () => ({
         <Text onPress={() => onChangeQuantity(quantity - 1)}>Decrease</Text>
       </Text>
     );
-  }
+  },
 }));
 
 const mockCartItem: CartItem = {
@@ -100,7 +100,7 @@ describe('CartItemCard', () => {
         arrivalDate={mockArrivalDate}
         onRemove={mockOnRemove}
         onChangeQuantity={mockOnChangeQuantity}
-      />
+      />,
     );
 
     // Use more flexible text matching
@@ -120,7 +120,7 @@ describe('CartItemCard', () => {
         arrivalDate={mockArrivalDate}
         onRemove={mockOnRemove}
         onChangeQuantity={mockOnChangeQuantity}
-      />
+      />,
     );
 
     fireEvent.press(screen.getByText('remove'));
@@ -134,7 +134,7 @@ describe('CartItemCard', () => {
         arrivalDate={mockArrivalDate}
         onRemove={mockOnRemove}
         onChangeQuantity={mockOnChangeQuantity}
-      />
+      />,
     );
 
     fireEvent.press(screen.getByText('Increase'));
@@ -148,7 +148,7 @@ describe('CartItemCard', () => {
         arrivalDate={mockArrivalDate}
         onRemove={mockOnRemove}
         onChangeQuantity={mockOnChangeQuantity}
-      />
+      />,
     );
 
     fireEvent.press(screen.getByText('Decrease'));
@@ -167,7 +167,7 @@ describe('CartItemCard', () => {
         arrivalDate={mockArrivalDate}
         onRemove={mockOnRemove}
         onChangeQuantity={mockOnChangeQuantity}
-      />
+      />,
     );
     expect(screen.getByText(/CartItemImage/)).toBeTruthy();
     expect(screen.getAllByText(/Test Brand/).length).toBeGreaterThan(0);
@@ -185,7 +185,7 @@ describe('CartItemCard', () => {
         arrivalDate={mockArrivalDate}
         onRemove={mockOnRemove}
         onChangeQuantity={mockOnChangeQuantity}
-      />
+      />,
     );
 
     expect(screen.getByText(/CartItemDetails/)).toBeTruthy();
@@ -195,7 +195,7 @@ describe('CartItemCard', () => {
 
   it('applies custom style when provided', () => {
     const customStyle = { marginTop: 10 };
-    
+
     render(
       <CartItemCard
         item={mockCartItem}
@@ -203,7 +203,7 @@ describe('CartItemCard', () => {
         onRemove={mockOnRemove}
         onChangeQuantity={mockOnChangeQuantity}
         style={customStyle}
-      />
+      />,
     );
 
     expect(screen.getByText('CartItemHeader: 2024-01-15')).toBeTruthy();
