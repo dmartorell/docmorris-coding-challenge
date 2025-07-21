@@ -45,6 +45,10 @@
       <key>NSAllowsLocalNetworking</key>
       <true/>
     </dict>
+    <key>NSHealthShareUsageDescription</key>
+    <string>This app needs to save your ordered medications to HealthKit to help you track your health.</string>
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>This app needs to save your ordered medications to HealthKit to help you track your health.</string>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>
     <key>UIRequiredDeviceCapabilities</key>

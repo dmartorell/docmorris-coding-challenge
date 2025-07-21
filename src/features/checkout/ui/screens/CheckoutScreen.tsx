@@ -42,10 +42,7 @@ export const CheckoutScreen = () => {
     <MedicationCheckoutItemCard
       item={item}
       style={{ marginHorizontal: 16 }}
-
-      // arrivalDate={arrivalString}
-      // onRemove={handleRemoveItem}
-      // onQuantityChange={handleQuantityChange}
+      onSendToHealthKit={() => null}
     />
   );
 

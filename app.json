@@ -11,6 +11,10 @@
     "icon": "./assets/heimApo/icon.png",
     "ios": {
       "bundleIdentifier": "com.docmorris.heimapo",
+      "infoPlist": {
+        "NSHealthShareUsageDescription": "This app needs to save your ordered medications to HealthKit to help you track your health.",
+        "NSHealthUpdateUsageDescription": "This app needs to save your ordered medications to HealthKit to help you track your health."
+      },
       "supportsTablet": true
     },
     "name": "Heim Apo",
