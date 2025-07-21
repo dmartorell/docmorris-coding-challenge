@@ -4,6 +4,7 @@
   "description": "Health Kit Module",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "expo-plugin": "app.plugin.js",
   "scripts": {
     "build": "expo-module build",
     "clean": "expo-module clean",

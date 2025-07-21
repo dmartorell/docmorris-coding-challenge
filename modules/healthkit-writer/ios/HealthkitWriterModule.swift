@@ -58,7 +58,7 @@ public class HealthKitWriterModule: Module {
       if let form = medicationData["form"] as? String { metadata["Form"] = form }
       if let frequency = medicationData["frequency"] as? String { metadata["Frequency"] = frequency }
       if let notes = medicationData["notes"] as? String { metadata["Notes"] = notes }
-      metadata["SourceApp"] = "My Health App"
+      metadata["SourceApp"] = "HeimApo"
 
       let startDate = self.parseISODateString(medicationData["startDate"] as? String) ?? Date()
       let endDate = self.parseISODateString(medicationData["endDate"] as? String) ?? startDate
