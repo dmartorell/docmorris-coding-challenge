@@ -41,7 +41,6 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
         return;
       }
     } catch (error: any) {
-      logger.error('HealthKit authorization error:', error);
       Alert.alert(t('healthkit_authorization_error_title'), error.message);
       return;
     }
@@ -68,7 +67,6 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
         Alert.alert(t('add_to_health_failed_title'), t('add_to_health_failed_message', { productName: item.tagLine }));
       }
     } catch (error: any) {
-      logger.error('HealthKit write error:', error);
       Alert.alert(t('add_to_health_error_title'), error.message);
     }
   };

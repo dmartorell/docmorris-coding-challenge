@@ -6,6 +6,8 @@ import './global.css';
 
 import { ThemeProvider } from './src/ui/theme/ThemeContext';
 import { AppNavigator } from './src/navigation/AppNavigator';
+import { logger } from './src/utils/logger';
+import HealthKitWriter from 'healthkit-writer';
 
 SplashScreen.preventAutoHideAsync();
 

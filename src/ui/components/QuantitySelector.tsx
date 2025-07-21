@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { View, Pressable, ViewStyle } from 'react-native';
 import { cssInterop } from 'nativewind';
 import { useTheme } from '../theme/ThemeContext';
-import { logger } from '../../utils/logger';
 import { Text } from './Text';
 
 const StyledView = cssInterop(View, { className: 'style' });
@@ -30,7 +29,6 @@ export const QuantitySelector: FC<QuantitySelectorProps> = ({
   const handleIncrement = () => {
     const newQuantity = quantity + 1;
     if (maxQuantity !== undefined && newQuantity > maxQuantity) {
-      logger.warn(`Cannot increment quantity beyond maximum: ${maxQuantity}`);
       return;
     }
     onChangeQuantity(newQuantity);
