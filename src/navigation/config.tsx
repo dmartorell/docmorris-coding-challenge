@@ -4,14 +4,12 @@ import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { Theme } from '../ui/theme/themes';
 import { TAB_ROUTES_NAMES } from './types';
 
-const TAB_HEIGHT = 80;
-
 export const getTabScreenOptions = (currentTheme: Theme): (
   ({ route }: { route: { name: string } }) => BottomTabNavigationOptions) =>
   ({ route }) => ({
     tabBarActiveTintColor: currentTheme.colors.secondary,
     tabBarInactiveTintColor: currentTheme.colors.textMuted,
-    tabBarStyle: { backgroundColor: currentTheme.colors.surface, height: TAB_HEIGHT },
+    tabBarStyle: { backgroundColor: currentTheme.colors.surface },
     tabBarIcon: ({ color, size }: { color: string; size: number }) => {
       switch (route.name) {
       case TAB_ROUTES_NAMES.HOME:

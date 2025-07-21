@@ -2,7 +2,6 @@ import { renderHook, act } from '@testing-library/react-hooks';
 import { waitFor } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 import { useCart } from '../useCart';
-import { CartRepository } from '../../data/repositories/CartRepository';
 import { CartItem } from '../../data/models';
 
 jest.mock('../../data/repositories/CartRepository');

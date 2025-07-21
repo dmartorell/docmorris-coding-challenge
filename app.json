@@ -21,28 +21,26 @@
       },
       "supportsTablet": true
     },
+    "jest": {
+      "preset": "jest-expo"
+    },
     "name": "Heim Apo",
     "newArchEnabled": true,
     "orientation": "portrait",
+    "plugins": [
+      "healthkit-writer",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#ffffff",
+          "image": "./assets/heimApo/splash-icon.png",
+          "imageWidth": 250,
+          "resizeMode": "contain"
+        }
+      ]
+    ],
     "scheme": "heimapo",
     "slug": "heim-apo",
-    "splash": {
-      "backgroundColor": "#ffffff",
-      "expo-splash-screen": {
-        "backgroundColor": "#ffffff",
-        "image": "./assets/heimApo/splash-icon.png",
-        "imageWidth": 250,
-        "resizeMode": "contain"
-      },
-      "image": "./assets/heimApo/splash-icon.png",
-      "jest": {
-        "preset": "jest-expo"
-      },
-      "plugins": [
-        "healthkit-writer"
-      ],
-      "resizeMode": "contain"
-    },
     "userInterfaceStyle": "light",
     "version": "1.0.0"
   }

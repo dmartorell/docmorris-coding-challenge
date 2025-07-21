@@ -81,7 +81,6 @@ export const CartScreen: FC = () => {
         }}
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
-        bounces={false}
       />
     </ScreenTemplate>
   );

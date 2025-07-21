@@ -5,7 +5,7 @@ import { BottomTabParamList, CartStackParamList, SCREENS } from '../../../naviga
 import { useTranslations } from '../../../locales/useTranslations';
 import { logger } from '../../../utils/logger';
 import { CartItem } from '../data/models';
-import { CartRepository } from '../data/repositories/CartRepository';
+import { CartRepository } from '../data/repositories/cartRepository';
 
 interface ContinueToCheckoutParams {
   navigation: NavigationProp<CartStackParamList>;
