@@ -16,64 +16,70 @@ public class HealthKitWriterModule: Module {
 
     AsyncFunction("requestMedicationAuthorization") { (promise: Promise) in
       guard HKHealthStore.isHealthDataAvailable() else {
-        promise.reject("HEALTHKIT_UNAVAILABLE", "HealthKit is not available on this device.")
-        return
-      }
-
-      guard let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession) else {
-        promise.reject("INTERNAL_ERROR", "Mindful Session type is not available.")
+        promise.reject("HEALTHKIT_UNAVAILABLE", "HealthKit is not available.")
         return
       }
       
-      let typesToWrite: Set<HKSampleType> = [mindfulType]
-
+      guard let medicationType = HKObjectType.quantityType(forIdentifier: .inhalerUsage) else {
+        promise.reject("INTERNAL_ERROR", "Medication type is not available.")
+        return
+      }
+      
+      let typesToWrite: Set<HKSampleType> = [medicationType]
       healthStore.requestAuthorization(toShare: typesToWrite, read: nil) { (success, error) in
         if let error = error {
-          promise.reject("AUTHORIZATION_ERROR", "HealthKit authorization failed: \(error.localizedDescription)")
+          promise.reject("AUTHORIZATION_ERROR", "Authorization failed: \(error.localizedDescription)")
           return
         }
-        promise.resolve(success)
+        let status = self.healthStore.authorizationStatus(for: medicationType)
+        promise.resolve(status == .sharingAuthorized)
       }
     }
 
     AsyncFunction("writeMedication") { (medicationData: [String: Any], promise: Promise) in
       guard HKHealthStore.isHealthDataAvailable() else {
-        promise.reject("HEALTHKIT_UNAVAILABLE", "HealthKit is not available on this device.")
-        return
-      }
-
-      guard let name = medicationData["name"] as? String else {
-        promise.reject("INVALID_DATA", "Medication name is required.")
-        return
-      }
-
-      guard let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession) else {
-        promise.reject("INVALID_TYPE", "Mindful session type is not available.")
+        promise.reject("HEALTHKIT_UNAVAILABLE", "HealthKit is not available.")
         return
       }
       
-      var metadata: [String: Any] = ["MedicationName": name]
+      guard let medicationType = HKObjectType.quantityType(forIdentifier: .inhalerUsage) else {
+        promise.reject("INVALID_TYPE", "Medication type is not available.")
+        return
+      }
       
-      if let dosage = medicationData["dosage"] as? String { metadata["Dosage"] = dosage }
-      if let form = medicationData["form"] as? String { metadata["Form"] = form }
-      if let frequency = medicationData["frequency"] as? String { metadata["Frequency"] = frequency }
-      if let notes = medicationData["notes"] as? String { metadata["Notes"] = notes }
-      metadata["SourceApp"] = "HeimApo"
-
+      var metadata: [String: Any] = [:]
+      
+      metadata["DataType"] = "Medication"
+      if let name = medicationData["name"] as? String { 
+        metadata["Medication Name"] = name 
+      }
+      if let brand = medicationData["brand"] as? String { 
+        metadata["Medication Brand"] = brand 
+      }
+      if let notes = medicationData["notes"] as? String { 
+        metadata["Notes"] = notes 
+      }
+      
+      metadata[HKMetadataKeyWasUserEntered] = true
+      
       let startDate = self.parseISODateString(medicationData["startDate"] as? String) ?? Date()
-      let endDate = self.parseISODateString(medicationData["endDate"] as? String) ?? startDate
-
-      let mindfulSample = HKCategorySample(
-        type: mindfulType,
-        value: HKCategoryValue.notApplicable.rawValue,
+      let endDate = startDate
+      
+      let quantityValue: Double = 1.0
+      
+      let quantity = HKQuantity(unit: HKUnit.count(), doubleValue: quantityValue)
+      
+      let medicationSample = HKQuantitySample(
+        type: medicationType,
+        quantity: quantity,
         start: startDate,
         end: endDate,
         metadata: metadata
       )
-
-      healthStore.save(mindfulSample) { (success, error) in
+      
+      healthStore.save(medicationSample) { (success, error) in
         if let error = error {
-          promise.reject("SAVE_ERROR", "Failed to save medication to HealthKit: \(error.localizedDescription)")
+          promise.reject("SAVE_ERROR", "Failed to save: \(error.localizedDescription)")
           return
         }
         promise.resolve(success)

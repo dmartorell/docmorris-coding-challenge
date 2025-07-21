@@ -11,6 +11,7 @@
     "icon": "./assets/heimApo/icon.png",
     "ios": {
       "bundleIdentifier": "com.docmorris.heimapo",
+      "deploymentTarget": "16.0",
       "entitlements": {
         "com.apple.developer.healthkit": true
       },

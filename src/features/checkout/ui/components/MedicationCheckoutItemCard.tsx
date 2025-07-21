@@ -41,6 +41,7 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
         return;
       }
     } catch (error: any) {
+      logger.error('HealthKit authorization error:', error);
       Alert.alert(t('healthkit_authorization_error_title'), error.message);
       return;
     }
@@ -49,12 +50,8 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
     // Map your CartItem data to the MedicationData interface expected by the native module
     const medicationData: MedicationData = {
       name: item.tagLine,
-      dosage: item.volume,
-      form: item.type, 
-      frequency: 'daily',
-      notes: `Ordered from ${appName}. Brand: ${item.brand || 'N/A'}. Original price: ${item.price}€. Quantity: ${item.quantity}.`,
-      startDate: new Date().toISOString(),
-      endDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), // Example: 2 days from now
+      brand: item.brand,
+      notes: `Ordered from ${appName}. Brand: ${item.brand || 'N/A'}. Original price: ${item.price}€. Quantity: ${item.volume}.`,
     };
 
     // 3. Write Medication to HealthKit
@@ -67,6 +64,7 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
         Alert.alert(t('add_to_health_failed_title'), t('add_to_health_failed_message', { productName: item.tagLine }));
       }
     } catch (error: any) {
+      logger.error('HealthKit write error:', error);
       Alert.alert(t('add_to_health_error_title'), error.message);
     }
   };
