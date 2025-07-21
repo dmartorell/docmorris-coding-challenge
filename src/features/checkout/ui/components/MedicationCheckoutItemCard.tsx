@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Image, View, ViewStyle, Alert } from 'react-native';
+import { Image, View, ViewStyle, Alert, Platform } from 'react-native';
 import { cssInterop } from 'nativewind';
 import { useTheme } from '../../../../ui/theme/ThemeContext';
 import { logger } from '../../../../utils/logger';
@@ -25,6 +25,7 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
   const { currentTheme } = useTheme();
 
   const appName = appConfig.expo?.name || 'App';
+  const healthAppButtonText = Platform.OS === 'ios' ? t('save_to_apple_health_app') : t('save_to_google_health_app');
 
   const handleSaveToHealthApp = async () => {
     try {
@@ -102,9 +103,9 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
           </StyledView>
           <StyledView className="self-start mt-6">
             <StyledView className="flex-row items-center">
-              <Logo source={currentTheme.logoIcon} className='w-4 h-4 mr-2' />
+              <Logo source={currentTheme.logoHealthkit} className='w-8 h-8 mr-2' />
               <Button variant='link' onPress={handleSaveToHealthApp}>
-                {t('save_to_health_app')}
+                {healthAppButtonText}
               </Button>
             </StyledView>
           </StyledView>
