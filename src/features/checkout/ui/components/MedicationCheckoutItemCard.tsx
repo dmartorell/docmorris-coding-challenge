@@ -1,71 +1,30 @@
 import { FC } from 'react';
-import { Image, View, ViewStyle, Alert, Platform } from 'react-native';
+import { Image, View, ViewStyle } from 'react-native';
 import { cssInterop } from 'nativewind';
-import { useTheme } from '../../../../ui/theme/ThemeContext';
 import { logger } from '../../../../utils/logger';
-import appConfig from '../../../../../app.json';
 import { Text } from '../../../../ui/components/Text';
 import { Button } from '../../../../ui/components/Button';
 import { Logo } from '../../../../ui/components/Logo';
-import { useTranslations } from '../../../../locales/useTranslations';
 import { CartItem } from '../../../cart/data/models';
-import HealthKitWriter, { MedicationData } from '../../../../../modules/healthkit-writer/src';
+import { useTheme } from '../../../../ui/theme/ThemeContext';
 
 interface MedicationCheckoutItemCardProps {
   item: CartItem;
-  onSendToHealthKit: (item: CartItem) => void;
+  healthAppButtonText: string;
+  onSendToHealthApp: (item: CartItem) => void;
   style?: ViewStyle;
 }
 
 const StyledView = cssInterop(View, { className: 'style' });
 const StyledImage = cssInterop(Image, { className: 'style' });
 
-export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = ({ item, style, onSendToHealthKit }) => {
-  const { t } = useTranslations();
+export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = ({
+  item,
+  onSendToHealthApp,
+  healthAppButtonText,
+  style,
+}) => {
   const { currentTheme } = useTheme();
-
-  const appName = appConfig.expo?.name || 'App';
-  const healthAppButtonText = Platform.OS === 'ios' ? t('save_to_apple_health_app') : t('save_to_google_health_app');
-
-  const handleSaveToHealthApp = async () => {
-    try {
-      const authorized = await HealthKitWriter.requestMedicationAuthorization();
-      if (!authorized) {
-        Alert.alert(
-          t('healthkit_permission_denied_title'),
-          t('healthkit_permission_denied_message'),
-        );
-        return;
-      }
-    } catch (error: any) {
-      logger.error('HealthKit authorization error:', error);
-      Alert.alert(t('healthkit_authorization_error_title'), error.message);
-      return;
-    }
-
-    // 2. Prepare MedicationData for HealthKit
-    // Map your CartItem data to the MedicationData interface expected by the native module
-    const medicationData: MedicationData = {
-      name: item.tagLine,
-      brand: item.brand,
-      notes: `Ordered from ${appName}. Brand: ${item.brand || 'N/A'}. Original price: ${item.price}€. Quantity: ${item.volume}.`,
-    };
-
-    // 3. Write Medication to HealthKit
-    try {
-      const success = await HealthKitWriter.writeMedication(medicationData);
-      if (success) {
-        Alert.alert(t('add_to_health_success_title'), t('add_to_health_success_message', { productName: item.tagLine }));
-        onSendToHealthKit(item);
-      } else {
-        Alert.alert(t('add_to_health_failed_title'), t('add_to_health_failed_message', { productName: item.tagLine }));
-      }
-    } catch (error: any) {
-      logger.error('HealthKit write error:', error);
-      Alert.alert(t('add_to_health_error_title'), error.message);
-    }
-  };
-
   return (
     <StyledView
       className="p-4 mb-5 rounded-md border w-full"
@@ -104,7 +63,7 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
           <StyledView className="self-start mt-6">
             <StyledView className="flex-row items-center">
               <Logo source={currentTheme.logoHealthkit} className='w-8 h-8 mr-2' />
-              <Button variant='link' onPress={handleSaveToHealthApp}>
+              <Button variant='link' onPress={() => onSendToHealthApp(item)}>
                 {healthAppButtonText}
               </Button>
             </StyledView>

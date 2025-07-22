@@ -9,11 +9,13 @@ import { useCart } from '../../domain/useCart';
 import { CartItemCard } from '../components/CartItemCard';
 import { BottomTabParamList, CartScreenNavigationProp, SCREENS } from '../../../../navigation/types';
 import { useTranslations } from '../../../../locales/useTranslations';
+import { useTheme } from '../../../../ui/theme/ThemeContext';
 
 export const CartScreen: FC = () => {
   const { t } = useTranslations();
   const rootNavigation = useNavigation<BottomTabNavigationProp<BottomTabParamList>>();
   const navigation = useNavigation<CartScreenNavigationProp>();
+  const { currentTheme } = useTheme();
 
   const {
     cartItems,
@@ -36,7 +38,7 @@ export const CartScreen: FC = () => {
             arrivalDate={t('cart_item_arrival_date')}
             onRemove={onRemoveItem}
             onChangeQuantity={onChangeQuantity}
-            style={{ marginHorizontal: 16 }}
+            style={{ marginHorizontal: currentTheme.spacing.md }}
           />
         )}
         keyExtractor={(item) => item.id}

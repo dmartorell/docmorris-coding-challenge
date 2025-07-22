@@ -32,7 +32,12 @@ export const AppNavigator = () => {
           options={({ navigation }) => ({
             headerLeft: () => (
               <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MaterialIcons name="close" size={24} color={currentTheme.colors.textMuted} />
+                <MaterialIcons
+                  name="close"
+                  size={24}
+                  style={{ marginRight: currentTheme.spacing.md }}
+                  color={currentTheme.colors.textMuted}
+                />
               </TouchableOpacity>
             ),
             presentation: 'fullScreenModal',

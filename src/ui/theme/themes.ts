@@ -75,7 +75,7 @@ export type Theme = {
   logoHealthkit?: ImageSourcePropType;
 };
 
-// --- HeimApo Theme (DocMorris Brand) ---
+// --- HeimApo Theme ---
 export const heimApoTheme: Theme = {
   brandId: BRAND_ID.HEIM_APO,
   colors: {
@@ -146,7 +146,7 @@ export const heimApoTheme: Theme = {
   logoHealthkit: require('../../../assets/common/logoHealthkit.png'),
 };
 
-// --- SmartPill Theme (Brand B) ---
+// --- SmartPill Theme  ---
 export const smartPillTheme: Theme = {
   brandId: BRAND_ID.SMART_PILL,
   colors: {

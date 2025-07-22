@@ -6,16 +6,13 @@ import { CartOrderSummaryFooter } from '../../../cart/ui/components/CartOrderSum
 import { useTheme } from '../../../../ui/theme/ThemeContext';
 import { CartItem } from '../../../cart/data/models';
 import { useCheckout } from '../../domain/useCheckout';
+import { useMedicationHealthApp } from '../../domain/useMedicationHealthApp';
 
 export const CheckoutScreen = () => {
   const { t } = useTranslations();
   const { currentTheme } = useTheme();
-  const {
-    medicationItems,
-    isLoadingData,
-    handleSendToHealthKit,
-    onContinueCheckoutPress,
-  } = useCheckout();
+  const { medicationItems, isLoadingData, onContinueCheckoutPress } = useCheckout();
+  const { healthAppButtonText, writeMedication } = useMedicationHealthApp();
 
   return (
     <ScreenTemplate
@@ -28,8 +25,9 @@ export const CheckoutScreen = () => {
           renderItem={({ item }: { item: CartItem }) => (
             <MedicationCheckoutItemCard
               item={item}
-              style={{ marginHorizontal: 16 }}
-              onSendToHealthKit={handleSendToHealthKit}
+              style={{ marginHorizontal: currentTheme.spacing.md }}
+              onSendToHealthApp={() => writeMedication(item)}
+              healthAppButtonText={healthAppButtonText}
             />
           )}
           keyExtractor={(item) => item.id}
