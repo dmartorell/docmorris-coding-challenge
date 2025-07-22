@@ -8,25 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		2C15407BC5DC06F4CDD2A716 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C93B79DAC60FA904781EF64 /* ExpoModulesProvider.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		57E40962AE8077F4B3744844 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E852313B938E8B20C8832CFD /* PrivacyInfo.xcprivacy */; };
-		AA3E23560AF06198DB50CBCB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E7033AF93283BF3DAF63C /* ExpoModulesProvider.swift */; };
+		81B310D6C861B52A13A7DD08 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 48F5F7B442C11C33BC9B17A2 /* PrivacyInfo.xcprivacy */; };
+		9D712167EBDA0254A97AD192 /* libPods-HeimApo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD45B707F59FD1D30F1051DE /* libPods-HeimApo.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
-		FFBC42ADB21D2961F7C8AE65 /* libPods-HeimApo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3159B5BE7B0701E48450791 /* libPods-HeimApo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01990F55587B5DCA571E2B68 /* Pods-HeimApo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeimApo.release.xcconfig"; path = "Target Support Files/Pods-HeimApo/Pods-HeimApo.release.xcconfig"; sourceTree = "<group>"; };
+		051B6ABA111F8DEB4B137086 /* Pods-HeimApo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeimApo.debug.xcconfig"; path = "Target Support Files/Pods-HeimApo/Pods-HeimApo.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* HeimApo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeimApo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HeimApo/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HeimApo/Info.plist; sourceTree = "<group>"; };
-		30AB2109B2347BFBB6B7FD12 /* Pods-HeimApo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeimApo.release.xcconfig"; path = "Target Support Files/Pods-HeimApo/Pods-HeimApo.release.xcconfig"; sourceTree = "<group>"; };
-		5AC71AE5FE5B9BFBD49D550C /* Pods-HeimApo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeimApo.debug.xcconfig"; path = "Target Support Files/Pods-HeimApo/Pods-HeimApo.debug.xcconfig"; sourceTree = "<group>"; };
-		822E7033AF93283BF3DAF63C /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-HeimApo/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		3C93B79DAC60FA904781EF64 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-HeimApo/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		48F5F7B442C11C33BC9B17A2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = HeimApo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = HeimApo/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C3159B5BE7B0701E48450791 /* libPods-HeimApo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeimApo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E852313B938E8B20C8832CFD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = HeimApo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		CD45B707F59FD1D30F1051DE /* libPods-HeimApo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeimApo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = HeimApo/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* HeimApo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "HeimApo-Bridging-Header.h"; path = "HeimApo/HeimApo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,21 +37,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFBC42ADB21D2961F7C8AE65 /* libPods-HeimApo.a in Frameworks */,
+				9D712167EBDA0254A97AD192 /* libPods-HeimApo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		052268A149A19275ABA791E0 /* HeimApo */ = {
-			isa = PBXGroup;
-			children = (
-				822E7033AF93283BF3DAF63C /* ExpoModulesProvider.swift */,
-			);
-			name = HeimApo;
-			sourceTree = "<group>";
-		};
 		13B07FAE1A68108700A75B9A /* HeimApo */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,7 +53,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				E852313B938E8B20C8832CFD /* PrivacyInfo.xcprivacy */,
+				48F5F7B442C11C33BC9B17A2 /* PrivacyInfo.xcprivacy */,
 			);
 			name = HeimApo;
 			sourceTree = "<group>";
@@ -70,27 +62,19 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				C3159B5BE7B0701E48450791 /* libPods-HeimApo.a */,
+				CD45B707F59FD1D30F1051DE /* libPods-HeimApo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4C5B019F854BFE5296EABC18 /* Pods */ = {
+		45EC2AEDA5B9F275856A8349 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5AC71AE5FE5B9BFBD49D550C /* Pods-HeimApo.debug.xcconfig */,
-				30AB2109B2347BFBB6B7FD12 /* Pods-HeimApo.release.xcconfig */,
+				051B6ABA111F8DEB4B137086 /* Pods-HeimApo.debug.xcconfig */,
+				01990F55587B5DCA571E2B68 /* Pods-HeimApo.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		6D3FF93DBCC68FD6CA9C4A6A /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				052268A149A19275ABA791E0 /* HeimApo */,
-			);
-			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -107,8 +91,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				4C5B019F854BFE5296EABC18 /* Pods */,
-				6D3FF93DBCC68FD6CA9C4A6A /* ExpoModulesProviders */,
+				45EC2AEDA5B9F275856A8349 /* Pods */,
+				8D42511B30121C365AB33060 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -123,6 +107,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8D42511B30121C365AB33060 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				F4212F1346AD91303D953AF3 /* HeimApo */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +122,14 @@
 			);
 			name = Supporting;
 			path = HeimApo/Supporting;
+			sourceTree = "<group>";
+		};
+		F4212F1346AD91303D953AF3 /* HeimApo */ = {
+			isa = PBXGroup;
+			children = (
+				3C93B79DAC60FA904781EF64 /* ExpoModulesProvider.swift */,
+			);
+			name = HeimApo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,13 +140,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "HeimApo" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				56DA81F9B53B87B7FAA5689C /* [Expo] Configure project */,
+				495EB27CD8488FA61EF4E7D3 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				17190CD2CCCEBCF8CE772DC5 /* [CP] Embed Pods Frameworks */,
+				05768BC8651F0EB5FBD1B423 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				57E40962AE8077F4B3744844 /* PrivacyInfo.xcprivacy in Resources */,
+				81B310D6C861B52A13A7DD08 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +217,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
+		};
+		05768BC8651F0EB5FBD1B423 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeimApo/Pods-HeimApo-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HeimApo/Pods-HeimApo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -240,25 +258,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		17190CD2CCCEBCF8CE772DC5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HeimApo/Pods-HeimApo-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HeimApo/Pods-HeimApo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		56DA81F9B53B87B7FAA5689C /* [Expo] Configure project */ = {
+		495EB27CD8488FA61EF4E7D3 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -325,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				AA3E23560AF06198DB50CBCB /* ExpoModulesProvider.swift in Sources */,
+				2C15407BC5DC06F4CDD2A716 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +334,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AC71AE5FE5B9BFBD49D550C /* Pods-HeimApo.debug.xcconfig */;
+			baseConfigurationReference = 051B6ABA111F8DEB4B137086 /* Pods-HeimApo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -359,7 +359,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.docmorris.heimapo;
-				PRODUCT_NAME = HeimApo;
+				PRODUCT_NAME = "HeimApo";
 				SWIFT_OBJC_BRIDGING_HEADER = "HeimApo/HeimApo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -370,7 +370,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30AB2109B2347BFBB6B7FD12 /* Pods-HeimApo.release.xcconfig */;
+			baseConfigurationReference = 01990F55587B5DCA571E2B68 /* Pods-HeimApo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -390,7 +390,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.docmorris.heimapo;
-				PRODUCT_NAME = HeimApo;
+				PRODUCT_NAME = "HeimApo";
 				SWIFT_OBJC_BRIDGING_HEADER = "HeimApo/HeimApo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
