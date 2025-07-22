@@ -72,9 +72,10 @@ export type Theme = {
   logo: ImageSourcePropType;
   logoIcon: ImageSourcePropType;
   logoMuted: ImageSourcePropType;
+  logoHealthkit?: ImageSourcePropType;
 };
 
-// --- HeimApo Theme (DocMorris Brand) ---
+// --- HeimApo Theme ---
 export const heimApoTheme: Theme = {
   brandId: BRAND_ID.HEIM_APO,
   colors: {
@@ -142,9 +143,10 @@ export const heimApoTheme: Theme = {
   logoIcon: require('../../../assets/heimApo/logoIcon.png'),
   logo: require('../../../assets/heimApo/logo.png'),
   logoMuted: require('../../../assets/heimApo/logoMuted.png'),
+  logoHealthkit: require('../../../assets/common/logoHealthkit.png'),
 };
 
-// --- SmartPill Theme (Brand B) ---
+// --- SmartPill Theme  ---
 export const smartPillTheme: Theme = {
   brandId: BRAND_ID.SMART_PILL,
   colors: {
@@ -212,5 +214,5 @@ export const smartPillTheme: Theme = {
   logoIcon: require('../../../assets/smartPill/logoIcon.png'),
   logo: require('../../../assets/smartPill/logo.png'),
   logoMuted: require('../../../assets/smartPill/logoMuted.png'),
-
+  logoHealthkit: require('../../../assets/common/logoHealthkit.png'),
 };

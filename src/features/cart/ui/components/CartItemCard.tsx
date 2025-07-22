@@ -36,7 +36,7 @@ export const CartItemCard: FC<CartItemCardProps> = ({
 
   return (
     <StyledView
-      className="p-4 mb-5 rounded-md border"
+      className="p-4 mb-4 rounded-md border"
       style={[{
         backgroundColor: currentTheme.colors.surface,
         borderColor: currentTheme.colors.border,

@@ -21,17 +21,17 @@ jest.mock('../../../../../ui/components/QuantitySelector', () => ({
         <Text>{quantity}</Text>
       </>
     );
-  }
+  },
 }));
 
 jest.mock('../../../../../utils/formatters', () => ({
-  formatCurrency: (value: number) => `$${value.toFixed(2)}`
+  formatCurrency: (value: number) => `$${value.toFixed(2)}`,
 }));
 
 describe('CartItemControls', () => {
   it('renders quantity and formatted price', () => {
     const { getByText } = render(
-      <CartItemControls quantity={2} price={10} onChangeQuantity={() => {}} />
+      <CartItemControls quantity={2} price={10} onChangeQuantity={() => {}} />,
     );
     expect(getByText('2')).toBeTruthy();
     expect(getByText('$20.00')).toBeTruthy();
@@ -40,7 +40,7 @@ describe('CartItemControls', () => {
   it('calls onChangeQuantity when Increase/Decrease is pressed', () => {
     const onChangeQuantity = jest.fn();
     const { getByText } = render(
-      <CartItemControls quantity={2} price={10} onChangeQuantity={onChangeQuantity} />
+      <CartItemControls quantity={2} price={10} onChangeQuantity={onChangeQuantity} />,
     );
     fireEvent.press(getByText('Increase'));
     expect(onChangeQuantity).toHaveBeenCalledWith(3);

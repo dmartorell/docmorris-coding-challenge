@@ -20,14 +20,14 @@ jest.mock('../../../../../ui/theme/ThemeContext', () => ({
 describe('CartItemHeader', () => {
   it('renders the arrival date', () => {
     const { getByText } = render(
-      <CartItemHeader arrivalDate="Arrives tomorrow" />
+      <CartItemHeader arrivalDate="Arrives tomorrow" />,
     );
     expect(getByText('Arrives tomorrow')).toBeTruthy();
   });
 
   it('applies border color from theme', () => {
     const { getByText } = render(
-      <CartItemHeader arrivalDate="Arrives tomorrow" />
+      <CartItemHeader arrivalDate="Arrives tomorrow" />,
     );
     expect(getByText('Arrives tomorrow')).toBeTruthy();
   });

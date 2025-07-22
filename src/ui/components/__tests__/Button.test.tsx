@@ -24,7 +24,7 @@ jest.mock('../Text', () => {
 describe('Button', () => {
   it('renders children', () => {
     const { getByText } = render(
-      <Button onPress={() => {}}>Click Me</Button>
+      <Button onPress={() => {}}>Click Me</Button>,
     );
     expect(getByText('Click Me')).toBeTruthy();
   });
@@ -32,7 +32,7 @@ describe('Button', () => {
   it('calls onPress when pressed', () => {
     const onPress = jest.fn();
     const { getByText } = render(
-      <Button onPress={onPress}>Press</Button>
+      <Button onPress={onPress}>Press</Button>,
     );
     fireEvent.press(getByText('Press'));
     expect(onPress).toHaveBeenCalled();
@@ -40,7 +40,7 @@ describe('Button', () => {
 
   it('shows ActivityIndicator when loading', () => {
     const { UNSAFE_getByType } = render(
-      <Button onPress={() => {}} loading>Loading</Button>
+      <Button onPress={() => {}} loading>Loading</Button>,
     );
     const { ActivityIndicator } = require('react-native');
     expect(UNSAFE_getByType(ActivityIndicator)).toBeTruthy();
@@ -49,7 +49,7 @@ describe('Button', () => {
   it('is disabled when disabled prop is true', () => {
     const onPress = jest.fn();
     const { getByTestId } = render(
-      <Button onPress={onPress} disabled>Disabled</Button>
+      <Button onPress={onPress} disabled>Disabled</Button>,
     );
     fireEvent.press(getByTestId('button'));
     expect(onPress).not.toHaveBeenCalled();
@@ -58,7 +58,7 @@ describe('Button', () => {
   it('is disabled when loading prop is true', () => {
     const onPress = jest.fn();
     const { getByTestId } = render(
-      <Button onPress={onPress} loading>Loading</Button>
+      <Button onPress={onPress} loading>Loading</Button>,
     );
     fireEvent.press(getByTestId('button'));
     expect(onPress).not.toHaveBeenCalled();
@@ -66,7 +66,7 @@ describe('Button', () => {
 
   it('applies correct variant styles', () => {
     const { getByText, rerender } = render(
-      <Button onPress={() => {}} variant="primary">Primary</Button>
+      <Button onPress={() => {}} variant="primary">Primary</Button>,
     );
     expect(getByText('Primary')).toBeTruthy();
     rerender(<Button onPress={() => {}} variant="secondary">Secondary</Button>);

@@ -23,7 +23,7 @@ jest.mock('@expo/vector-icons/MaterialIcons', () => {
 describe('RemoveButton', () => {
   it('renders the label', () => {
     const { getByText } = render(
-      <RemoveButton label="Remove" onPress={() => {}} />
+      <RemoveButton label="Remove" onPress={() => {}} />,
     );
     expect(getByText('Remove')).toBeTruthy();
   });
@@ -31,7 +31,7 @@ describe('RemoveButton', () => {
   it('calls onPress when pressed', () => {
     const onPress = jest.fn();
     const { getByText } = render(
-      <RemoveButton label="Delete" onPress={onPress} />
+      <RemoveButton label="Delete" onPress={onPress} />,
     );
     fireEvent.press(getByText('Delete'));
     expect(onPress).toHaveBeenCalled();
@@ -39,7 +39,7 @@ describe('RemoveButton', () => {
 
   it('renders icon with correct props', () => {
     const { getByText } = render(
-      <RemoveButton label="Remove" onPress={() => {}} iconSize={20} />
+      <RemoveButton label="Remove" onPress={() => {}} iconSize={20} />,
     );
     // The icon mock renders as 'delete-outline-20-#888'
     expect(getByText(/delete-outline-20-#888/)).toBeTruthy();

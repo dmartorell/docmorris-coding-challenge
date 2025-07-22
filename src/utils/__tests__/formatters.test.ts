@@ -1,4 +1,3 @@
-
 import { formatCurrency } from '../formatters';
 import i18n from '../../locales';
 

@@ -37,61 +37,34 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     }
   };
 
-  const loadPersistedTheme = async ({
-    setBrandFn,
-    setCurrentThemeFn,
-    setIsLoadingThemeFn,
-    loggerInstance,
-  }: {
-    setBrandFn: (brandId: BrandId) => void,
-    setCurrentThemeFn: (theme: Theme) => void,
-    setIsLoadingThemeFn: (isLoading: boolean) => void,
-    loggerInstance: typeof logger,
-  }) => {
+  const loadPersistedTheme = async () => {
     try {
-      let appBrandId: BrandId | null = null;
-
       const storedBrandId = await AsyncStorage.getItem(THEME_STORAGE_KEY);
       if (storedBrandId === BRAND_ID.HEIM_APO || storedBrandId === BRAND_ID.SMART_PILL) {
-        appBrandId = storedBrandId;
+        const themeToApply = storedBrandId === BRAND_ID.HEIM_APO ? heimApoTheme : smartPillTheme;
+        setCurrentTheme(themeToApply);
+        return;
       }
 
-      if (!appBrandId) {
-        const identifier = Application.applicationId || '';
-        const brandMap: Record<string, BrandId> = {
-          [BUNDLE_ID.HEIM_APO]: BRAND_ID.HEIM_APO,
-          [BUNDLE_ID.SMART_PILL]: BRAND_ID.SMART_PILL,
-        };
-        appBrandId = BRAND_ID.HEIM_APO;
+      const identifier = Application.applicationId || '';
+      const brandMap: Record<string, BrandId> = {
+        [BUNDLE_ID.HEIM_APO]: BRAND_ID.HEIM_APO,
+        [BUNDLE_ID.SMART_PILL]: BRAND_ID.SMART_PILL,
+      };
 
-        !(brandMap[identifier]) &&
-          loggerInstance.warn(`Unknown app identifier: ${identifier}. Defaulting to HeimApo.`);
-      }
+      const brandFromIdentifier = brandMap[identifier];
 
-      if (appBrandId) {
-        setBrandFn(appBrandId);
-        loggerInstance.log(`App brand ID determined: ${appBrandId}`);
-      } else {
-        loggerInstance.error('Could not determine app brand ID. Defaulting to HeimApo.');
-        await AsyncStorage.setItem(THEME_STORAGE_KEY, BRAND_ID.HEIM_APO);
-        setCurrentThemeFn(heimApoTheme);
-      }
+      setBrand(brandFromIdentifier || BRAND_ID.HEIM_APO);
     } catch (error) {
-      loggerInstance.error('Failed to load theme from AsyncStorage or determine brand:', error);
-      await AsyncStorage.setItem(THEME_STORAGE_KEY, BRAND_ID.HEIM_APO);
-      setCurrentThemeFn(heimApoTheme);
+      logger.error('Failed to load or determine theme, defaulting to HeimApo:', error);
+      setBrand(BRAND_ID.HEIM_APO);
     } finally {
-      setIsLoadingThemeFn(false);
+      setIsLoadingTheme(false);
     }
   };
 
   useEffect(() => {
-    loadPersistedTheme({
-      setBrandFn: setBrand,
-      setCurrentThemeFn: setCurrentTheme,
-      setIsLoadingThemeFn: setIsLoadingTheme,
-      loggerInstance: logger,
-    });
+    loadPersistedTheme();
   }, []);
 
   return (

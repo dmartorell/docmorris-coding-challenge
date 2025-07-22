@@ -1,3 +1,7 @@
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react-native';
+import { CartOrderSummaryFooter } from '../CartOrderSummaryFooter';
+
 jest.mock('@expo/vector-icons/MaterialIcons', () => {
   const { Text } = require('react-native');
   return ({ name, size, color }: any) => <Text>{`${name}-${size}-${color}`}</Text>;
@@ -6,9 +10,6 @@ jest.mock('@expo/vector-icons/MaterialIcons', () => {
 jest.mock('../../../../../ui/components/Logo', () => ({
   Logo: () => null,
 }));
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
-import { CartOrderSummaryFooter } from '../CartOrderSummaryFooter';
 
 jest.mock('../../../../../ui/components/Text', () => {
   const { Text } = require('react-native');
@@ -77,7 +78,7 @@ describe('CartOrderSummaryFooter', () => {
   it('calls onContinue when button is pressed', () => {
     const onContinue = jest.fn();
     const { getByTestId } = render(
-      <CartOrderSummaryFooter {...defaultProps} onContinue={onContinue} />
+      <CartOrderSummaryFooter {...defaultProps} onContinue={onContinue} />,
     );
     fireEvent.press(getByTestId('continue-btn'));
     expect(onContinue).toHaveBeenCalled();
@@ -94,7 +95,7 @@ describe('CartOrderSummaryFooter', () => {
         extraPointsText="5 Extra Points"
         loyaltyLevel={2}
         loayaltyLevelText="Gold Member"
-      />
+      />,
     );
     expect(getByText('Discount applied')).toBeTruthy();
     expect(getByText('10 Health Points')).toBeTruthy();
