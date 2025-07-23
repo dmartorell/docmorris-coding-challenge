@@ -20,7 +20,7 @@ This document outlines core technical decisions for the DocMorris dual-branded m
 
 ## 2. Styling: Design System with NativeWind & React Context API
 
-I’d implement a comprehensive Design System leveraging a utility-first CSS-in-JS library like NativeWind (Tailwind CSS for React Native), combined with React's Context API for seamless brand-specific theming.
+The implementation will involve a comprehensive Design System leveraging a utility-first CSS-in-JS library like NativeWind (Tailwind CSS for React Native), combined with React's Context API for seamless brand-specific theming.
 
 * **Design System Foundation:** Establishes reusable UI components for visual consistency across both brands and accelerates UI development.
 
@@ -46,7 +46,7 @@ Redux Toolkit for global application state, combined with React's Context API fo
 
 ## 4. Testing: Multi-Layered Strategy
 
-My approach would be A multi-layered testing strategy encompassing Unit, Component (Snapshot/Shallow Render), Integration, and End-to-End (E2E) tests, integrated into the CI/CD pipeline.
+This approach utilizes a multi-layered testing strategy encompassing Unit, Component (Snapshot/Shallow Render), Integration, and End-to-End (E2E) tests, integrated into the CI/CD pipeline.
 
 * **Unit Tests (Jest):** Test individual functions and business logic in isolation for fastest feedback and early bug detection.
 
