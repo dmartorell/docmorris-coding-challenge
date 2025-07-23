@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Follow these instructions to set up and run the project locally.
+A few instructions to set up and run the project locally.
 
 ### Prerequisites
 
