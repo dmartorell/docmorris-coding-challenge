@@ -14,7 +14,7 @@ jest.mock('../../../../../ui/components/Text', () => ({
 }));
 
 jest.mock('../../../../../ui/components/Button', () => ({
-  Button: ({ children, onPress, ...props }: any) => {
+  Button: ({ children, onPress }: any) => {
     const { Text } = require('react-native');
     return <Text onPress={onPress}>{children}</Text>;
   },

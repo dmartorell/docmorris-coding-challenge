@@ -27,7 +27,7 @@ export const MedicationCheckoutItemCard: FC<MedicationCheckoutItemCardProps> = (
   const { currentTheme } = useTheme();
   return (
     <StyledView
-      className="p-4 mb-5 rounded-md border w-full"
+      className="p-4 mb-4 rounded-md border"
       style={[{
         backgroundColor: currentTheme.colors.surface,
         borderColor: currentTheme.colors.border,
