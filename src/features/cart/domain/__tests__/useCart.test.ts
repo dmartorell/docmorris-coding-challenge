@@ -4,6 +4,15 @@ import { Alert } from 'react-native';
 import { useCart } from '../useCart';
 import { CartItem } from '../../data/models';
 
+jest.mock('expo-localization', () => ({
+  locale: 'en',
+  locales: ['en'],
+  timezone: 'Europe/Berlin',
+  isRTL: false,
+  getLocales: () => [{ languageCode: 'en' }],
+  region: 'DE',
+}));
+
 jest.mock('../../data/repositories/CartRepository');
 jest.mock('../../../../ui/useTranslations', () => ({ useTranslations: () => ({ t: (key: string) => key }) }));
 jest.mock('../../../../utils/logger', () => ({

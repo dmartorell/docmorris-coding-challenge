@@ -110,7 +110,7 @@ describe('CartItemCard', () => {
     expect(screen.getByText(/CartItemControls/)).toBeTruthy();
     expect(screen.getAllByText(/2/).length).toBeGreaterThan(0);
     expect(screen.getByText(/25\.99/)).toBeTruthy();
-    expect(screen.getByText('remove')).toBeTruthy();
+    expect(screen.getByText('Remove')).toBeTruthy();
   });
 
   it('handles remove button press', () => {
@@ -123,7 +123,7 @@ describe('CartItemCard', () => {
       />,
     );
 
-    fireEvent.press(screen.getByText('remove'));
+    fireEvent.press(screen.getByText('Remove'));
     expect(mockOnRemove).toHaveBeenCalledWith('1');
   });
 

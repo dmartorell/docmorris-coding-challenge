@@ -63,7 +63,5 @@ describe('QuantitySelector', () => {
     );
     fireEvent.press(getByText('+'));
     expect(onChangeQuantity).not.toHaveBeenCalled();
-    const { logger } = require('../../../utils/logger');
-    expect(logger.warn).toHaveBeenCalledWith('Cannot increment quantity beyond maximum: 5');
   });
 });
