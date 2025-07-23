@@ -1,19 +1,19 @@
 import ExpoModulesCore
 import HealthKit
 
-public class HealthKitWriterModule: Module {
+public class HealthkitWriterModule: Module {
   private let healthStore = HKHealthStore()
-
+  
   private func parseISODateString(_ dateString: String?) -> Date? {
     guard let dateString = dateString else { return nil }
     let formatter = ISO8601DateFormatter()
     formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
     return formatter.date(from: dateString)
   }
-
+  
   public func definition() -> ModuleDefinition {
-    Name("HealthKitWriter")
-
+    Name("HealthkitWriter")
+    
     AsyncFunction("requestMedicationAuthorization") { (promise: Promise) in
       guard HKHealthStore.isHealthDataAvailable() else {
         promise.reject("HEALTHKIT_UNAVAILABLE", "HealthKit is not available.")
@@ -35,7 +35,7 @@ public class HealthKitWriterModule: Module {
         promise.resolve(status == .sharingAuthorized)
       }
     }
-
+    
     AsyncFunction("writeMedication") { (medicationData: [String: Any], promise: Promise) in
       guard HKHealthStore.isHealthDataAvailable() else {
         promise.reject("HEALTHKIT_UNAVAILABLE", "HealthKit is not available.")

@@ -17,5 +17,5 @@
     "eslint.config.js",
     "targets/widget/expo-target.config.js",
     "nativewind-env.d.ts"
-  ]
+, "modules/healthkit-writer/index.js"  ]
 }
