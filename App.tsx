@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { View } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import './global.css';
@@ -28,10 +27,8 @@ export const App = () => {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-      <ThemeProvider>
-        <AppNavigator />
-      </ThemeProvider>
-    </View>
+    <ThemeProvider>
+      <AppNavigator />
+    </ThemeProvider>
   );
 };
