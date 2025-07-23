@@ -28,7 +28,7 @@ Follow these instructions to set up and run the project locally.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/dmartorell/docmorris-coding-challenge.git](https://github.com/dmartorell/docmorris-coding-challenge.git)
+    git clone https://github.com/dmartorell/docmorris-coding-challenge.git
     ```
 2.  **Navigate into the project directory:**
     ```bash
@@ -48,7 +48,7 @@ This project uses custom native modules (for HealthKit), so you cannot run it di
     ```bash
     npx expo prebuild --clean
     ```
-    This command creates/recreates the `ios/` and `android/` directories based on your `app.json` and plugins.
+    This command creates/recreates the `ios/` and `android/` directories based on the `app.json` and plugins.
 
 2.  **Install iOS Pods (for iOS only):**
     ```bash
@@ -77,13 +77,13 @@ This project uses custom native modules (for HealthKit), so you cannot run it di
     ```
     This will build and launch the app on your connected Android emulator or device.
 
-**Note on HealthKit:** The "Add to Health" functionality is **iOS-specific**. On Android, it will display an alert indicating it's not implemented.
+**Note on HealthKit:** The "Add to Health" functionality is **iOS-specific**. On Android, it will display a log on the termial.
 
 ### App Flow (Demo Scope)
 
 Due to the demo's focused scope, the application's navigation flow is limited:
 
-* You can navigate through the **bottom tab items**, but **only the "Cart" tab is fully implemented** with interactive content. Other tabs ("Home", "Categories", "Explore", "User") will display placeholder screens.
+* You can navigate through the **bottom tab items**, but **only the "Cart" tab is implemented** with interactive content. Other tabs ("Home", "Categories", "Explore", "User") will display placeholder screens.
 
 * From the **"Cart" screen**, you can interact with mock cart items (add/remove quantity, remove item).
 
