@@ -4,7 +4,10 @@ import { CartOrderSummaryFooter } from '../CartOrderSummaryFooter';
 
 jest.mock('@expo/vector-icons/MaterialIcons', () => {
   const { Text } = require('react-native');
-  return ({ name, size, color }: any) => <Text>{`${name}-${size}-${color}`}</Text>;
+  return function MockMaterialIcon (props: any) {
+    const { name, size, color } = props;
+    return <Text>{`${name}-${size}-${color}`}</Text>;
+  };
 });
 
 jest.mock('../../../../../ui/components/Logo', () => ({
