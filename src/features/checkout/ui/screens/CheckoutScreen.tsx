@@ -47,6 +47,7 @@ export const CheckoutScreen = () => {
               amountText={t('cart_order_summary_total')}
             />)
           }
+          bounces={false}
         />
       )}
     </ScreenTemplate>
