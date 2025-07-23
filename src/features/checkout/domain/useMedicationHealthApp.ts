@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 import { Alert, Platform } from 'react-native';
 import Constants from 'expo-constants';
+import HealthkitWriter, { MedicationData } from 'healthkit-writer';
 import { useTranslations } from '../../../locales/useTranslations';
 import { logger } from '../../../utils/logger';
 import { CartItem } from '../../cart/data/models';
-import HealthKitWriter, { MedicationData } from '../../../../modules/healthkit-writer/src';
 import { useTheme } from '../../../ui/theme/ThemeContext';
 import { Theme } from '../../../ui/theme/themes';
 
@@ -23,7 +23,7 @@ export const useMedicationHealthApp = (): UseMedicationHealthAppReturn => {
   const writeMedication = useCallback(async (item: CartItem) => {
     if (Platform.OS === 'ios') {
       try {
-        const authorized = await HealthKitWriter.requestMedicationAuthorization();
+        const authorized = await HealthkitWriter.requestMedicationAuthorization();
         if (!authorized) {
           Alert.alert(
             t('healthkit_permission_denied_title'),
@@ -48,7 +48,7 @@ export const useMedicationHealthApp = (): UseMedicationHealthAppReturn => {
     };
 
     try {
-      const success = await HealthKitWriter.writeMedication(medicationData);
+      const success = await HealthkitWriter.writeMedication(medicationData);
       if (success) {
         Alert.alert(t('add_to_health_success_title'), t('add_to_health_success_message', { productName: item.tagLine }));
       } else {

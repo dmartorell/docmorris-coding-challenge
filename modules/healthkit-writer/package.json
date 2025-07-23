@@ -1,0 +1,11 @@
+{
+  "name": "healthkit-writer",
+  "version": "1.0.0",
+  "description": "HealthKit writer module for Expo",
+  "main": "index.ts",
+  "peerDependencies": {
+    "expo": "*",
+    "react": "*",
+    "react-native": "*"
+  }
+}

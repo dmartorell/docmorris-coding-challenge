@@ -4,16 +4,16 @@
       "expo.modules.healthkitwriter.HealthkitWriterModule"
     ]
   },
-  "apple": {
+  "ios": {
     "capabilities": {
       "healthkit": true
     },
     "modules": [
-      "HealthKitWriterModule"
+      "HealthkitWriterModule"
     ]
   },
   "platforms": [
-    "apple",
+    "ios",
     "android"
   ]
 }
